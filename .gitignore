@@ -1,2 +1,8 @@
 #ignore all aux files
 *.aux
+*.lof
+*.lot
+*.log
+*.out
+*.gz
+*.toc
