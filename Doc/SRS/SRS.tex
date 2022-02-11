@@ -3,6 +3,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -73,13 +74,133 @@ The customers for this product are university students. The customers/users have
 The customers for this product are university students. The customers/users have an influence on the requirements of the application and its overall development since the purpose of the application is intended to help students organize their dates.  
 
 \section{Project Constraints}
+\subsection{Mandated Constraints}
+\subsubsection{Solution Design Constraints}
 
+\emph{Description}: The program shall be written in the React.js and Python programming languages.\\
+\emph{Rationale}: All developers are familiar with React.js and Python.\\
+\emph{Fit Criterion}: The software is written in React.js and Python. \\
+
+
+\noindent\emph{Description}: The application shall function within Notion. \\
+\emph{Rationale}: Notion is a popular organization and management tool used by many students. In addition, the existing project implements Notion with all its features.\\
+\emph{Fit Criterion}: All applications are fully operational within Notion.
+
+\subsubsection{Implementation Environment of the Current System}
+
+The application will be cloned from the GitLab repository and executed via the IDE of the user’s choice such as VS Code. To function, the application will be started on the machine.  
+
+\subsubsection{Partner or Collaborative Applications}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
+
+\subsubsection{Off-the-shelf Software}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
+
+\subsubsection{Anticipated Workplace Environment}
+
+The product can be used on any desktop machine that can execute React. 
+
+\subsubsection{Schedule Constraints}
+
+\emph{Description}: The project must follow the project schedule shown in the SFWRENG 3XA3 course outline.\\
+\emph{Rationale}: The project needs to follow a predefined plan to ensure the completion of deliverables by their respective due dates and the project by the end of the course.\\
+\emph{Fit Criterion}: The project will be completed with all the deliverables submitted on time by April 12th, 2022. 
+
+\subsubsection{Budget Constraints}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
+
+\subsubsection{Enterprise Constraints}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
+
+\subsection{Naming Conventions and Technology}
+
+\begin{table}[!ht]
+\begin{center}
+    \centering
+    \begin{tabular}{|l|p{0.72\linewidth}|}
+     \hline
+     \textbf{Term} & \textbf{Definition} \\
+     \hline
+     User & The person using the product \\
+     \hline
+     SRS & Acronym for Software Requirements Specification; A document that describes what the system will do and the expected performance \\
+     \hline
+     React & A front-end JavaScript library for building user interfaces\\
+     \hline
+     Tabula-py & Python library for PDF scraping \\
+     \hline
+     Pandas & Python library for data manipulation \\
+     \hline
+     Cypress & Front-end testing framework \\
+     \hline
+     Notion & An organization and project management tool \\
+     \hline
+     PDF & Portable Document Format \\
+     \hline
+     PC & A personal computer \\
+     \hline
+     Scraper & Extracting data from a document or web \\
+     \hline
+     OS & An operating system\\
+     \hline
+     Clone & Copy the contents from a repository to local storage  \\
+     \hline
+     GitLab & A type of Repo for version control \\
+     \hline
+     Repository & A folder for information \\
+     \hline
+     Course Outline & A document that informs all students about the assessments, policies, and grading schemes of a specific course \\
+     \hline
+    \end{tabular}
+    \caption{Naming Conventions and Terminology}
+    \end{center}
+\end{table}
+
+\newpage
+
+\subsection{Relevant Facts and Assumptions}
+
+\subsubsection{Facts}
+
+\begin{itemize}
+\item The original repository contains approximately 10,000 lines of code. 
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+\begin{itemize}
+\item User has already uploaded a PDF using the existing feature to select an upload a PDF to a Notion page. 
+\item Users know how to operate a PC.
+\item Users understand how to use the features of Notion such as editing a page.
+\item Users have access to a PC.
+\end{itemize}
+
+\pagebreak
 
 \section{Functional Requirements}
 
 \subsection{The Scope of the Work and the Product}
 
 \subsubsection{The Context of the Work}
+
+  \begin{figure}
+    \centerline{\includegraphics[width=1.5in, height=3in]{images/context_diagram.jpg}}
+    \caption{Context Diagram for SaveTheDate}
+  \end{figure}
+
+SaveTheDate is a standalone application that does not interact with other systems. It consists of one actor who is the user. 
 
 \pagebreak
 
@@ -115,6 +236,13 @@ The customers for this product are university students. The customers/users have
 \end{table}
 
 \subsubsection{Individual Product Use Cases}
+
+  \begin{figure}
+    \centerline{\includegraphics[width=5in, height=2.5in]{images/flow.jpg}}
+    \caption{Use case diagram that displays the main functionalities of the application.}
+  \end{figure}
+  
+  The use case diagram shown in Figure 2 illustrates how a can interact with our application. To interact with the application, the user has two main cases. The first one is choosing to scrape a document and the second is to view a pre-existing dashboard of deadlines that have already been scraped from a document. To scrape a document, the user has the ability to provide the system with the page range for the document they want to scrape and to specify the course name. The system will then create a table on a new notion page, identify a table within the document and therefore determine the deadlines. This table will be displayed on the dashboard that the user can access. 
 
 \subsection{Functional Requirements}
 
