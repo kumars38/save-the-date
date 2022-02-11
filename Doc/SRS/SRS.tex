@@ -12,7 +12,7 @@
 }
 \usepackage[round]{natbib}
 
-\title{SE 3XA3: Software Requirements Specification\\Title of Project}
+\title{SE 3XA3: Software Requirements Specification\\Save The Date}
 
 \author{
         Karuka Khurana (khurak1)\\
@@ -38,8 +38,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+February 10 & 1.0 & SRS was created\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -73,6 +72,7 @@ to the template, you should explicity state what modifications were made.
 
 User characteristics should go under assumptions.
 
+
 \section{Functional Requirements}
 
 \subsection{The Scope of the Work and the Product}
@@ -85,28 +85,236 @@ User characteristics should go under assumptions.
 
 \subsection{Functional Requirements}
 
+\subsubsection{FR1}
+
+\begin{description}
+  \item[Description:] The system shall provide the user with a button to begin scraping. 
+  \item[Rationale:] The design must be intuitive to use, hence a visual interface for the user. 
+  \item[Priority:] High
+\end{description}
+
+\subsubsection{FR2}
+
+\begin{description}
+  \item[Description:] The system shall have a way to select the page range they want to scrape. 
+  \item[Rationale:] If the user knows the range in which the deadlines might exist in the document, the application can scrape over a specified page range, minimizing processing time. 
+  \item[Priority:] High
+\end{description}
+
+\subsubsection{FR3}
+
+\begin{description}
+  \item[Description:] The system shall have a way to identify deadline tables in the PDF.
+  \item[Rationale:] It is crucial that the application properly identifies tables with deadlines in a PDF as a PDF might contain a lot of tables irrelevant to deadlines, i.e., tables containing names of professors and their office hours. 
+  \item[Priority:] High
+\end{description}
+
+\subsubsection{FR4}
+
+\begin{description}
+  \item[Description:] The system shall have a way to structure the output table data. 
+  \item[Rationale:] The data obtained from a PDF may not be in a table format when read. Hence, there needs to be a way to structure the data into a table before being output in a Notion page. 
+  \item[Priority:] High
+\end{description}
+
+\subsubsection{FR5}
+
+\begin{description}
+  \item[Description:] The system shall have a way to create a Notion table in a page. 
+  \item[Rationale:] The application must be able to automatically read the data from the PDF and make a page with the read table. Hence, the system must be able to create a Notion table once it has been given the data for the table. 
+  \item[Priority:] High
+\end{description}
+
+\subsubsection{FR6}
+
+\begin{description}
+  \item[Description:] The system shall display the deadlines as a table in a Notion page. 
+  \item[Rationale:] The application should be capable of reading the data and putting it into a Notion table. The table that should be displayed needs to be structured well, in the same if not a better format than that in the PDF. 
+  \item[Priority:] High
+\end{description}
+
+\subsubsection{FR7}
+
+\begin{description}
+  \item[Description:] The system shall make the table editable. 
+  \item[Rationale:] The user might think of changing the deadline in a table, for example, if the due date has been changed by the course instructor. Hence, it is crucial that the table created by the application is editable. 
+  \item[Priority:] High
+\end{description}
+
+\subsubsection{FR8}
+
+\begin{description}
+  \item[Description:] The system shall ask the user to input the course name/code for the table. 
+  \item[Rationale:] Since the name of the course might not be explicitly listed in a PDF, i.e. a PDF with only deadlines or a shared course having several course codes. We required the user to input the course code to include a tag and title with the table. 
+  \item[Priority:] High
+\end{description}
+
+\subsubsection{FR9}
+
+\begin{description}
+  \item[Description:] The system shall create a new page when the scraper is used for the first time.  
+  \item[Rationale:] The idea is to have all the deadlines listed in an easy to access page. Hence a central page for all course deadlines. 
+  \item[Priority:] High
+\end{description}
+
+\subsubsection{FR10}
+
+\begin{description}
+  \item[Description:] The system shall allow the user to scrape multiple PDFs into one page. 
+  \item[Rationale:] To increase functionality of our application, the user must be able to insert multiple deadlines from different PDFs into the same page. 
+  \item[Priority:] High
+\end{description}
+
 \section{Non-functional Requirements}
 
 \subsection{Look and Feel Requirements}
 
+\subsubsection{Appearance Requirements}
+
+\begin{itemize}
+  \item[LF1.] The application shall be consistent with the Notion theme. 
+\end{itemize}
+
+\subsubsection{Style Requirements}
+
+\begin{itemize}
+  \item[LF2.] The application shall be consistent with the Notion theme. 
+\end{itemize}
+
 \subsection{Usability and Humanity Requirements}
+
+\subsubsection{Ease of Use Requirements}
+
+\begin{itemize}
+  \item[UH1.] The application must be accessible to the users in an easy-to-access menu.
+\end{itemize}
+
+\subsubsection{ Learning Requirements}
+
+\begin{itemize}
+  \item[UH2.] The users should be able to use the application without prior experience or training.
+\end{itemize}
+
+\subsubsection{Accessibility Requirements}
+
+\begin{itemize}
+  \item[UH3.] The application must adhere to the same accessibility range as the Notion application. 
+\end{itemize}
 
 \subsection{Performance Requirements}
 
+\subsubsection{Speed and Latency Requirements}
+
+\begin{itemize}
+  \item[PE1.] The application shall be able to scrape a PDF within a reasonable time. 
+  \item[PE2.] The application shall be able to make a Notion page within a reasonable time. 
+\end{itemize}
+
+\subsubsection{ Safety-Critical Requirements}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
+
+\subsubsection{ Precision or Accuracy Requirements}
+
+\begin{itemize}
+  \item[PE3.] The application shall be able to identify tables with deadlines with an 85\% accuracy.
+  \item[PE4.] The application shall be able to recreate tables with 90\% accuracy.
+\end{itemize}
+
+\subsubsection{ Reliability and Availability Requirements }
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
+
+\subsubsection{ Robustness or Fault-Tolerance Requirements}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
+
+\subsubsection{ Capacity Requirements}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
+
+\subsubsection{ Scalability or Extensibility Requirements}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
+
+\subsubsection{ Longevity Requirements}
+
+\begin{itemize}
+  \item[PE5.] The application must be functional with existing software and hardware by May 2022. 
+\end{itemize}
+
 \subsection{Operational and Environmental Requirements}
+
+\subsubsection{ Expected Physical Environment}
+
+\begin{itemize}
+  \item[OE1.] The system must not require an Internet connection to function correctly.
+\end{itemize}
+
+\subsection{Release Requirements}
+
+\begin{itemize}
+  \item[RR1.] The product will have a final release on April 10th, 2022. 
+\end{itemize}
 
 \subsection{Maintainability and Support Requirements}
 
+\subsubsection{Maintenance Requirements}
+
+\begin{itemize}
+  \item[MA1.] The source code must be fully documented, via commenting and class diagrams. 
+  \item[MA2.] The source code must all adhere to the same standard style. 
+\end{itemize}
+
+\subsubsection{Supportability Requirements}
+
+\begin{itemize}
+  \item[MA3.] The project’s main repository shall be made public, to allow users to raise issues. 
+\end{itemize}
+
+\subsubsection{Adaptability Requirements}
+
+\begin{itemize}
+  \item[MA4.] The application shall be supported by any machine running Windows 7 or newer, macOS Sierra 10.12 or newer, or Linux Ubuntu 16.04 or newer.
+  \item[MA5.] The application shall be supported by Chrome 98.0.X, FireFox 97.0 and Microsoft Edge 97.0.X. 
+\end{itemize}
+
 \subsection{Security Requirements}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
 
 \subsection{Cultural Requirements}
 
+\subsubsection{Cultural Requirements}
+
+\begin{itemize}
+  \item[CR1.] The system shall not allow users to input course names that are culturally offensive/inappropriate. 
+  \item[CR2.] The system shall not allow users to input course names that are in languages asides from English. 
+\end{itemize}
+
 \subsection{Legal Requirements}
+
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
 
 \subsection{Health and Safety Requirements}
 
-This section is not in the original Volere template, but health and safety are
-issues that should be considered for every engineering project.
+\begin{itemize}
+  \item[] N/A
+\end{itemize}
 
 \section{Project Issues}
 
