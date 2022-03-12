@@ -4,6 +4,7 @@
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage[normalem]{ulem}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -34,7 +35,9 @@
 \listoftables
 \listoffigures
 
-\begin{table}[bp]
+\newpage
+
+\begin{table}[p]
 \caption{\bf Revision History}
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
@@ -44,13 +47,16 @@ February 10 & 1.1 & Non-functional requirements completed\\
 February 10 & 1.2 & Project drivers completed\\
 February 11 & 1.3 & Project issues completed\\
 February 11 & 1.4 & Functional requirements and project constraints completed (SRS Rev.0 complete)\\
+March 10 & 1.5 & Functional requirements updated due to outdated source code components\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\newpage
+\clearpage
 
 \pagenumbering{arabic}
+
+\newpage
 
 This document describes the requirements for the \textbf{SaveTheDate} project. 
 The template for the Software Requirements Specification (SRS) is a subset of the Volere
@@ -314,20 +320,48 @@ SaveTheDate is a standalone application that does not interact with other system
 \end{description}
 
 \subsubsection{FR9}
+\begin{description}
+  \item[\sout{Description:}]\sout{ The system shall create a new page when the scraper is used for the first time.  }
+  \item[\sout{Rationale:}] \sout{The idea is to have all the deadlines listed in an easy to access page. Hence a central page for all course deadlines. }
+  \item[\sout{Priority:}]\sout{ High}
+\end{description}
 
 \begin{description}
-  \item[Description:] The system shall create a new page when the scraper is used for the first time.  
-  \item[Rationale:] The idea is to have all the deadlines listed in an easy to access page. Hence a central page for all course deadlines. 
+  \item[Description:] The system shall have a way to upload PDFs
+  \item[Rationale:] The application should be capable of uploading PDFs for viewing. The PDF should be displayed as a application component on the page.
   \item[Priority:] High
 \end{description}
 
 \subsubsection{FR10}
 
 \begin{description}
-  \item[Description:] The system shall allow the user to scrape multiple PDFs into one page. 
-  \item[Rationale:] To increase functionality of our application, the user must be able to insert multiple deadlines from different PDFs into the same page. 
+  \item[\sout{Description:}] \sout{The system shall allow the user to scrape multiple PDFs into one page.}
+  \item[\sout{Rationale:}] \sout{To increase functionality of our application, the user must be able to insert multiple deadlines from different PDFs into the same page. }
+  \item[\sout{Priority:}] \sout{High}
+\end{description}
+
+\begin{description}
+  \item[Description:] The system shall have a way to select PDFs from the local computer to scrape.  
+  \item[Rationale:] The application should be capable of selecting PDFs from local storage for scraping. The PDF pages would be scrapped for deadlines. Hence, it is essential.
   \item[Priority:] High
 \end{description}
+
+\subsubsection{FR11}
+
+\begin{description}
+  \item[Description:] The system shall have a way to upload images
+  \item[Rationale:] The application should be capable of uploading images for viewing. The image should be displayed as a application component on the page.
+  \item[Priority:] Low
+\end{description}
+
+\subsubsection{FR11}
+
+\begin{description}
+  \item[Description:] The system shall have a button that has all the available functionalities.
+  \item[Rationale:] All the functionalities should be available through the button function.
+  \item[Priority:] High
+\end{description}
+
 
 \section{Non-functional Requirements}
 
