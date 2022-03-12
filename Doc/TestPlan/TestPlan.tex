@@ -1,0 +1,794 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{chngpage}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=red,
+    urlcolor=blue
+}
+\usepackage[round]{natbib}
+
+\title{SE 3XA3: Test Plan\\SaveTheDate}
+
+\author{Group 17\\
+	Karuka Khurana (khurak1)\\
+	Utsharga Rozario (rozariou)\\
+	Samarth Kumar (kumars38)\\
+	Dhruv Cheemakurti (cheemakd)\\
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\pagenumbering{roman}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\begin{table}[bp]
+\caption{\bf Revision History}
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\midrule
+March 9 & 1.0 &
+\begin{tabular}{>{\raggedright\arraybackslash}X}General Info and Plan by Karuka\\FR test by Samarth\\NFR tests by Utsharga\end{tabular}\\
+\midrule
+March 11 & 1.1 &
+\begin{tabular}{>{\raggedright\arraybackslash}X}Appendix by Karuka\\Traceability Matrix By Utsharga\\Test for POC, Comparison and Unit Testing Plan by Dhruv\end{tabular}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section{General Information}
+
+\subsection{Purpose}
+
+The purpose of this document is to outline the testing, validation, and verification process of the functional and non-functional requirements, for the SaveTheDate project. The test cases outlined in this document have been created prior to implementation and will therefore act as a guide for future the development and testing process. The test cases have been chosen to ensure that the modules created are functioning as expected.  
+
+\subsection{Scope}
+
+The scope of the test plan outlined in this document is designed to test the functionality of the SaveTheDate application. To fully test SaveTheDate, we will test performance at a modular level by creating unit tests and at a higher level by using exploratory testing and specification-based testing. 
+
+\subsection{Acronyms, Abbreviations, and Symbols}
+	
+\begin{table}[hbp]
+\caption{\textbf{Table of Abbreviations}} \label{Table}
+
+\begin{tabularx}{\textwidth}{p{3cm}X}
+\toprule
+\textbf{Abbreviation} & \textbf{Definition} \\
+\midrule
+FR & functional requirements\\
+NFR & non-functional requirements\\
+POC & proof of concept\\
+SRS & Software requirements specification\\
+APP & application\\
+\bottomrule
+\end{tabularx}
+
+\end{table}
+
+\begin{table}[!htbp]
+\caption{\textbf{Table of Definitions}} \label{Table}
+
+\begin{tabularx}{\textwidth}{p{3cm}X}
+\toprule
+\textbf{Term} & \textbf{Definition}\\
+\midrule
+Notion & An organization and project management tool\\
+\midrule
+Repo & Gitlab Repository\\
+\midrule
+Pytest & A unit testing framework for Python \\
+\midrule
+Cypress & Used to test modern Javascript Frameworks \\
+\midrule
+Mocha & Javascript test framework for Node.js programs \\
+\midrule
+Unit Testing & A method of testing focused on testing individual methods and functions\\
+\midrule
+Acceptance Testing & A method of testing which is conducted to determine if the requirements of the specification are met \\
+\midrule
+Boundary Testing & A method of testing where values are chosen on semantically significant boundaries  \\
+\midrule
+Dynamic Testing & A method of testing where code is executed  \\
+\midrule
+Specification-Based Testing & A method of testing where test cases are built based on requirements specification \\
+\midrule
+Exploratory Testing & A method of testing where the tester simultaneously learns the code while testing it. It approaches testing from a user’s point of view.  \\
+\midrule
+Integration Testing & A method of testing where the individual software modules are combined and tested as a group  \\
+\midrule
+Partition Testing & A method of testing where the input domain is partitioned, and input values are selected from the partitions \\
+\midrule
+Fuzz Testing & A method of testing where random inputs are given to attempt to violate assertions  \\
+\midrule
+Static Testing & A method of testing where code is not executed  \\
+\midrule
+System Testing & A method of testing where the tests are performed on the system as a whole \\
+\bottomrule
+\end{tabularx}
+
+\end{table}	
+
+\newpage
+
+\subsection{Overview of Document}
+This document outlines the test plan which includes all the requirements and tests needed to verify correctness and validation of the SaveTheDate application. It contains relevant information on the different types of tests that will be conducted and why. This includes testing tools, testing schedule, and test cases.  
+
+\section{Plan}
+	
+\subsection{Software Description}
+
+Organization is a big part of a student’s success and allows one to prioritize activities, set and achieve goals and reduce stress. Notion is a widely used organization and management tool with a variety of features. The open-source Notion project is an agile framework that relies heavily on customer involvement and satisfaction. With Notion encouraging organization and effective visualization, SaveTheDate provides a solution that eliminates the need for user’s to manually update their due dates and deadlines and instead provides an automated process with beneficial visualization of what’s to come in the user’s calendar. SaveTheDate will add features including uploading a PDF, providing a page range the user would want the application to scrape, a scrape option and finally a dashboard with tables organized by due dates for the user to easily read and interact with. The user will be given the option to scrape multiple PDFs and add the output to the same dashboard to allow for information to be centralized and to promote organization.  
+
+\subsection{Test Team}
+
+The team is split into 2 sub teams: backend and frontend. Each sub team will work towards testing their respective modules. It will be divided as such: \\
+
+Karuka Khurana and Dhruv Cheemakurti: Front End\\
+
+Samarth Kumar and Utsharga Rozario: Back End\\
+
+\subsection{Automated Testing Approach}
+Testing will mostly be automated. Each module created will have an associated test class which will be committed to the group’s GitLab repository. These tests will run every time something is committed to the repo and can be updated when needed if more edge cases are found.  
+
+\subsection{Testing Tools}
+The unit tests will be written using the Pytest Framework as well as Mocha and Cypress. Manual testing will also be done for tests that cannot be automated. This will be largely required for verifying visuals of the Notion page. 
+
+\subsection{Testing Schedule}
+		
+Attached is the Gantt chart that outlines the group’s testing schedule.  
+
+\section{System Test Description}
+	
+\subsection{Tests for Functional Requirements}
+
+\subsubsection{Scraping PDF Tests}
+		
+\paragraph{Begin scraping button}
+
+\begin{enumerate}
+
+\item{FR-ST-1\\}
+
+Type: Functional, Dynamic, Manual 
+
+Initial State: Notion page has a PDF document uploaded 
+
+Input: A “Begin Scraping” button is pressed using the mouse 
+
+Output: The scraping process should begin 
+
+How test will be performed: Dynamic, manual testing is performed by pressing the scraping button and ensuring that the scraping process begins. 
+
+\end{enumerate}
+
+\paragraph{Page range}
+
+\begin{enumerate}
+
+\item{FR-ST-2\\}
+
+Type: Functional, Dynamic, Automated, Unit 
+
+Initial State: Notion page has a PDF document uploaded 
+
+Input: The page range field is filled, ex. “1-10” 
+
+Output: The scraping process should only occur over the specified pages of the PDF document 
+
+Exception: An error message stating “Invalid page range” should be provided if the page range entered is invalid. For example, negative values, fractional/decimal values, or if the first page number is greater than the last number. 
+
+How test will be performed: Unit testing is performed by supplying various page range inputs over multiple PDFs that have known scraping outputs per page. Then, outputs are compared to the known outputs to ensure that scraping only occurred over the specified range. 
+
+\end{enumerate}
+
+\paragraph{Identifying structured deadlines}
+
+\begin{enumerate}
+
+\item{FR-ST-3\\}
+
+Type: Functional, Dynamic, Automated, Unit 
+
+Input: The PDF document 
+
+Output: All structured (tabular) deadlines are found in the form of a 2D list 
+
+How test will be performed: Unit testing is performed by inputting multiple PDF cases into the python scraper, with varying dates and tasks. The expected results are found via manual inspection of the PDF for deadline tables. The scraper outputs are then compared to the expected results in each unit test to ensure all deadlines are found. 
+
+\end{enumerate}
+
+\paragraph{Structuring the output (Backend to frontend testing)}
+
+\begin{enumerate}
+
+\item{FR-ST-4\\}
+
+Type: Functional, Dynamic, Automated, Unit 
+
+Input: 2D list of deadlines and corresponding tasks from the python backend 
+
+Output: Structured data in the frontend (React) 
+
+How test will be performed: Unit testing is performed where the inputs are 2D lists of deadlines and tasks. Expected results in the frontend (React) are compared to the actual results. 
+
+\end{enumerate}
+
+\paragraph{Empty notion table creation}
+
+\begin{enumerate}
+
+\item{FR-ST-5\\}
+
+Type: Functional, Dynamic, Manual 
+
+Input: Dimensions and column headings for the table 
+
+Output: Notion table 
+
+How test will be performed: Manual testing will be used to verify that a table can be created in Notion, and that it is visually correct based on the dimensions and column headings provided. 
+
+\end{enumerate}
+
+\paragraph{Notion table creation with deadlines}
+
+\begin{enumerate}
+
+\item{FR-ST-6\\}
+
+Type: Functional, Dynamic, Manual, Automated 
+
+Input: Structured data in the frontend (React) 
+
+Output: Notion table with tasks and their deadlines provided 
+
+How test will be performed: Automated testing using Mocha.js is used to verify that table fields match their expected values based on the deadline/task data. Manual testing will be used to verify that the tables are visually correct. 
+
+\end{enumerate}
+
+\paragraph{Editing a table}
+
+\begin{enumerate}
+
+\item{FR-ST-7\\}
+
+Type: Functional, Dynamic, Manual 
+
+Initial state: Notion page has a table created 
+
+Input: Editing table cells 
+
+Output: Changed table 
+
+How test will be performed: Manual testing is used to verify that making changes to a table cell reflect in the actual table (it is editable and not static).
+
+\end{enumerate}
+
+\paragraph{Course code}
+
+\begin{enumerate}
+
+\item{FR-ST-8\\}
+
+Type: Functional, Dynamic, Automated, Unit, Manual 
+
+Initial state: Notion page has a PDF uploaded 
+
+Input: Course name/code field 
+
+Output: Generated table title  
+
+Exception: An error message will be provided if the course name/code has invalid characters, is inappropriate, or exceeds a certain length 
+
+How test will be performed: Unit testing is used to verify that the supplied course names and codes become the title for the generated table, and exceptions are raised appropriately. Manual testing is used to verify editing the course field on the Notion page itself. 
+
+\end{enumerate}
+
+\paragraph{Uploading PDF}
+
+\begin{enumerate}
+
+\item{FR-ST-9\\}
+
+Type: Functional, Dynamic, Manual 
+
+Initial state: Notion page has no PDF uploaded 
+
+Input: An “Upload PDF” button 
+
+Output: File explorer window opens 
+
+How test will be performed: Manual testing is used to verify that the upload button is functional from the Notion page. 
+
+\end{enumerate}
+
+\paragraph{Selecting PDF from files}
+
+\begin{enumerate}
+
+\item{FR-ST-10\\}
+
+Type: Functional, Dynamic, Manual, Automated 
+
+Input: A file selected via a file explorer window 
+
+Output: PDF file is uploaded to the Notion page 
+
+Exception: An error message is provided if the file does not end in .pdf.  
+
+How test will be performed: Automated testing is first used to check whether various PDFs can be uploaded using files from the repository. Manual testing is further used to verify that various PDF files can be selected using the explorer, and non-PDF files raise an exception. 
+\end{enumerate}
+
+\subsubsection{Uploading Image from local system to Notion clone}
+
+\paragraph{Uploading Image}
+
+\begin{enumerate}
+
+\item{FR-ST-11\\}
+
+Type: Functional, Dynamic, Manual, Automated 
+
+Initial state: Notion page has no image uploaded 
+
+Input: An “Upload Image” button 
+
+Output: File explorer window opens, image can be selected and uploaded 
+
+Exception: An error message is provided if the format of the file is not an image extension (.png, .jpg, etc.) 
+
+How test will be performed: Automated testing is used to check whether various images can first be uploaded to the page using a file from the repository (/img/…). Manual testing is then used to verify that the upload image button is functional from the Notion page.
+
+\end{enumerate}
+
+\subsubsection{All functionalities are accessiable}
+
+\paragraph{Button with available functionalities}
+
+\begin{enumerate}
+
+\item{FR-ST-12\\}
+
+Type: Functional, Dynamic, Manual 
+
+Input: Right-clicking on Notion line 
+
+Output: Menu with the various buttons (upload, scrape, etc.) should appear 
+
+How test will be performed: Manual testing is used to verify that menu appears and has all options present. Ensure that “Begin Scraping” button is unavailable until a PDF is uploaded.
+
+\end{enumerate}
+
+\subsection{Tests for Nonfunctional Requirements}
+
+\subsubsection{Look and Feel Requirements}
+		
+\paragraph{Appearance Requirements}
+
+\begin{enumerate}
+
+\item{NFR-LF-1\\}
+
+Type: Manual, Dynamic, Checklist 
+
+How test will be performed: The test team will run commands in the Notion SaveTheDate application and check if the PDFs, Table, and Image are returned in accordance with the Notion theme. 
+
+\end{enumerate}
+
+\paragraph{Style Requirements}
+
+\begin{enumerate}
+
+\item{NFR-LF-2\\}
+
+Type: Manual, Usability Survey 
+
+How test will be performed: The test team will run commands in the Notion SaveTheDate application and check if the PDFs, Table, and Image are returned in accordance with the Notion font and letter sizing. 
+
+\end{enumerate}
+
+\subsubsection{Usability and Humanity Requirements}
+
+\paragraph{Ease of use Requirements}
+
+\begin{enumerate}
+
+\item{NFR-UH-1\\}
+
+Type: Manual, Usability Survey 
+
+How test will be performed:  The test team will provide a questionnaire asking the user to input their age and then ask to follow up questions about their level of difficulty using the application. The following options will be provided to let the user decide their experience: intimidating, complicated, neutral, or excellent. The fit criterion is if 80\% of the users who are 13+ years old voted neutral or excellent, then the test has passed and NFR has been satisfied. 
+
+\item{NFR-UH-2\\}
+
+Type: Manual, Usability Survey 
+
+How test will be performed: The test team will provide a questionnaire asking the user to input the average time it takes for them to transition between tasks. 
+
+\item{NFR-UH-3\\}
+
+Type: Manual, Usability Survey 
+
+How test will be performed: The test team will provide a questionnaire asking the user if the new components feel coherent to the application. The following options will be provided to let the user decide their experience: ‘Yes, all the components feel coherent’, ‘some components feel out of place’, and ‘no none of the components are coherent’, followed by the areas that do not seem coherent.
+
+\end{enumerate}
+
+\subsubsection{Performance Requirements}
+		
+\paragraph{Speed Requirements}
+
+\begin{enumerate}
+
+\item{NFR-PR-1\\}
+
+Type: Automated, Dynamic, UnitTest 
+
+Initial State: PDF to scrape exists in test directory 
+
+Input/Condition: set of PDFs 
+
+Output/Result: Outputs the table data from the PDF in the command line 
+
+How test will be performed: The test team will run automated tests using Python Unit test module where the system will keep track of the execution time ensure that it is less than 10 seconds to pass.
+
+\item{NFR-PR-2\\}
+
+Type: Automated, Dynamic 
+
+Initial State: Table to be used as input exits in test directory 
+
+Input/Condition: set of table data 
+
+Output/Result: Outputs the table data as a Notion Component 
+
+How test will be performed: The test team will run automated tests using React test suite where the system will keep track of the execution time ensure that it is less than 10 seconds to pass. 
+
+\end{enumerate}
+
+\paragraph{Precision or Accuracy Requirements}
+
+\begin{enumerate}
+
+\item{NFR-PR-3\\}
+
+Type: Automated, Dynamic 
+
+Initial State: PDF to scrape exists in test directory 
+
+Input/Condition: set of PDFs 
+
+Output/Result: Outputs all the deadline tables and its data in the command line 
+
+How test will be performed: The test team will run automated tests using Python Unit test methods where the system will run assertions to check if all the existing deadline tables have been scraped with an 85\% accuracy.
+
+\item{NFR-PR-4\\}
+
+Type: Automated, Dynamic 
+
+Initial State: Table to be used as input exits in test directory 
+
+Input/Condition: set of table data 
+
+Output/Result: Outputs all the deadline tables and its data as a notion table  
+
+How test will be performed: The test team will run automated tests using React Unit test suite where the system will run assertions to check if all the table have been created with an 90\% accuracy.
+
+\end{enumerate}
+
+\paragraph{Longevity Requirements}
+
+\begin{enumerate}
+
+\item{NFR-PR-5\\}
+
+Type: Automated, Dynamic 
+
+Initial State: The React application is running 
+
+Input/Condition: All dependencies are up to date 
+
+Output/Result: All key functionality is working 
+
+How test will be performed: The test team will run all automated tests using React and Python Unit test methods where the system will check if all the tests are passing with the specified requirements. 
+
+\end{enumerate}
+
+\subsubsection{Operational and Environmental Requirements}
+
+\paragraph{Expected Physical Environment}
+
+\begin{enumerate}
+
+\item{NFR-OE-1\\}
+
+Type: Manual, Dynamic 
+
+The test team will manually execute tasks on Notion SaveTheDate with the internet disabled to see if errors arise as expected. The team will then check if the program works once the internet is turned back on. If so, then test case passed. 
+
+\end{enumerate}
+
+\subsubsection{Release Requirements}
+
+\begin{enumerate}
+
+\item{NFR-RR-1\\}
+
+Type: Manual, static, code inspection 
+
+Initial state: Program deployed to users in production 
+
+Input: Users provide feedback and feature requests 
+
+Output: Development team maintains feedback via a Gitlab issue tracker. 
+
+How test will be performed: The testing team will keep track of feature requests via Gitlab monthly. Additionally, the testing team will conduct code inspections to identify the faults for bug-fixes.
+
+\end{enumerate}
+
+\subsubsection{Maintainability and Support Requirements}
+
+\paragraph{Maintenance Requirements}
+
+\begin{enumerate}
+
+\item{NFR-MA-1\\}
+
+Type: Manual, Static 
+
+Initial state: N/A 
+
+Input: N/A 
+
+Output: The code is documented accurately with comments 
+
+How test will be performed: The code will be inspected by the team to determine if it has been accurately documented. The documentation will be manually inspected to ensure all aspects of the code have been documented.
+
+\item{NFR-MA-2\\}
+
+Type: Manual, Static 
+
+Initial state: N/A 
+
+Input: N/A 
+
+Output: The code is commented sufficiently, and the formatting is consistent 
+
+How test will be performed: The code will be inspected by the team to determine if it has been commented sufficiently and the formatting is consistent. The source code will be manually inspected to ensure all aspects of the code have been commented and is consistent with standard styling.
+
+\end{enumerate}
+
+\paragraph{Supportability Requirements}
+
+\begin{enumerate}
+
+\item{NFR-MA-3\\}
+
+Type: Manual, Dynamic 
+
+Initial state: Program deployed to users in GitLab and made public 
+
+Input: Users provide feedback and raise issues 
+
+Output: List of all the commands is displayed for the user 
+
+How test will be performed: The testing team will keep track of raised issues via Gitlab monthly and attempt to resolve them.
+
+\end{enumerate}
+
+\paragraph{Adaptability Requirements}
+
+\begin{enumerate}
+
+\item{NFR-MA-4\\}
+
+Type: Automated, Dynamic 
+
+Initial state: Program is running on different Operating Systems 
+
+Input: N/A 
+
+Output: N/A 
+
+How test will be performed: The automated testing is run on different Operating Systems. If all the automated tests pass, if so, this test will have passed.
+
+\item{NFR-MA-5\\}
+
+Type: Automated, Dynamic 
+
+Initial state: Program is running on different Internet Browser 
+
+Input: N/A 
+
+Output: N/A 
+
+How test will be performed: The automated testing is run on different Internet Browsers. If all the automated tests pass, if so, this test will have passed. 
+
+\end{enumerate}
+
+\subsubsection{Cultural Requirements}
+
+\begin{enumerate}
+
+\item{NFR-CR-1\\}
+
+Type: Automated, Dynamic 
+
+Initial state: The Notion SaveTheDate is running 
+
+Input: set of banned inappropriate words 
+
+Output: Prompt showing input is inappropriate 
+
+How test will be performed: The test team will run automated tests using React Unit test suite where the system will run assertions to check if all the banned words are not accepted as a course name. 
+
+\item{NFR-CR-2\\}
+
+Type: Automated, Dynamic 
+
+Initial state: The Notion SaveTheDate is running 
+
+Input: set of different languages that do not use English Language 
+
+Output: Prompt showing input is not in English 
+
+How test will be performed: The test team will run automated tests using React Unit test suite where the system will run assertions to check if different languages are not accepted as a course name. 
+
+\end{enumerate}
+
+\newpage
+
+\subsection{Traceability Between Test Cases and Requirements}
+
+\begin{table}[h!]
+\centerline{%
+\begin{tabular}{l|cccccccccccc}
+\multicolumn{1}{c|}{Test IDs} & \multicolumn{12}{c}{Requirement IDs} \\ \hline
+ & \multicolumn{1}{l}{FR1} & \multicolumn{1}{l}{FR2} & \multicolumn{1}{l}{FR3} & \multicolumn{1}{l}{FR4} & \multicolumn{1}{l}{FR5} & \multicolumn{1}{l}{FR6} & \multicolumn{1}{l}{FR7} & \multicolumn{1}{l}{FR8} & \multicolumn{1}{l}{FR9} & \multicolumn{1}{l}{FR10} & \multicolumn{1}{l}{FR11} & \multicolumn{1}{l}{FR12} \\ \hline
+FR-ST-1 & X &  &  &  &  &  &  &  &  &  &  &  \\
+FR-ST-2 &  & X &  &  &  &  &  &  &  &  &  &  \\
+FR-ST-3 &  &  & X &  &  &  &  &  &  &  &  &  \\
+FR-ST-4 &  &  &  & X &  &  &  &  &  &  &  &  \\
+FR-ST-5 &  &  &  &  & X &  &  &  &  &  &  &  \\
+FR-ST-6 &  &  &  &  &  & X &  &  &  &  &  &  \\
+FR-ST-7 &  &  &  &  &  &  & X &  &  &  &  &  \\
+FR-ST-8 &  &  &  &  &  &  &  & X &  &  &  &  \\
+FR-ST-9 &  &  &  &  &  &  &  &  & X &  &  &  \\
+FR-ST-10 &  &  &  &  &  &  &  &  &  & X &  &  \\
+FR-ST-11 &  &  &  &  &  &  &  &  &  &  & X &  \\
+FR-ST-12 &  &  &  &  &  &  &  &  &  &  &  & X
+\end{tabular}
+}
+\caption{Traceability Matrix: Functional Requirement}
+\label{Traceability Matrix: Functional Requirement}
+\end{table}
+
+\medskip
+\medskip
+
+\begin{table}[h!]
+\scriptsize
+\centerline{%
+\begin{tabular}{lccccccccccccccccccc}
+\multicolumn{1}{c|}{Test IDs} & \multicolumn{19}{c}{Requirement IDs} \\ \hline
+\multicolumn{1}{l|}{} & \multicolumn{1}{l}{LF1} & \multicolumn{1}{l}{LF2} & \multicolumn{1}{l}{UH1} & \multicolumn{1}{l}{UH2} & \multicolumn{1}{l}{UH3} & \multicolumn{1}{l}{PE1} & \multicolumn{1}{l}{PE2} & \multicolumn{1}{l}{PE3} & \multicolumn{1}{l}{PE4} & \multicolumn{1}{l}{PE5} & \multicolumn{1}{l}{OE1} & \multicolumn{1}{l}{RR1} & \multicolumn{1}{l}{MA1} & \multicolumn{1}{l}{MA2} & \multicolumn{1}{l}{MA3} & \multicolumn{1}{l}{MA4} & \multicolumn{1}{l}{MA5} & \multicolumn{1}{l}{CR1} & \multicolumn{1}{l}{CR2} \\ \hline
+\multicolumn{1}{l|}{NFR-LF-1} & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-LF-2} &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-UH-1} &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-UH-2} &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-UH-3} &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-PE-1} &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-PE-2} &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-PE-3} &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-PE-4} &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-PE-5} &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-OE-1} &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-RR-1} &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-MA-1} &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-MA-2} &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-MA-3} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  \\
+\multicolumn{1}{l|}{NFR-MA-4} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  \\
+\multicolumn{1}{l|}{NFR-MA-5} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  \\
+\multicolumn{1}{l|}{NFR-CR-1} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  \\
+\multicolumn{1}{l|}{NFR-CR-2} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X
+\end{tabular}
+}
+\caption{Traceability Matrix: Non-Functional Requirement}
+\label{Traceability Matrix: Non-Functional Requirement}
+\end{table}
+
+\normalsize
+
+\section{Tests for Proof of Concept}
+
+\subsection{Area of Testing1}
+		
+\paragraph{Title for Test}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Type: Functional, Dynamic, Manual, Static etc.
+					
+Initial State: 
+					
+Input: 
+					
+Output: 
+					
+How test will be performed: 
+					
+\item{test-id2\\}
+
+Type: Functional, Dynamic, Manual, Static etc.
+					
+Initial State: 
+					
+Input: 
+					
+Output: 
+					
+How test will be performed: 
+
+\end{enumerate}
+
+\subsection{Area of Testing2}
+
+...
+
+	
+\section{Comparison to Existing Implementation}	
+				
+\section{Unit Testing Plan}
+		
+\subsection{Unit testing of internal functions}
+		
+\subsection{Unit testing of output files}		
+
+\bibliographystyle{plainnat}
+
+\bibliography{SRS}
+
+\newpage
+
+\section{Appendix}
+
+\subsection{Symbolic Parameters}
+
+N/A
+
+\subsection{Usability Survey Questions?}
+
+These survey questions will be used to test usability requirements.
+
+\begin{enumerate}
+
+\item Would you use SaveTheDate as your main organization tool for due dates (Y/N)? 
+
+\item Are the SaveTheDate commands easy to use? 
+
+\item Is the process (from uploading the pdf to receiving the outputted table) intuitive? If not, why? 
+
+\item On average, how long does the process to receive a summary of your due dates take? (5 seconds, 10 seconds, etc.) 
+
+\item Rate the benefit of the application as “good”, “neutral”, or “bad”.  
+
+\item Rate your experience using the application. (Intimidating, complicated, neutral, or excellent) 
+
+\end{enumerate}
+
+\end{document}
