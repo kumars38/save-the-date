@@ -714,50 +714,78 @@ FR-ST-12 &  &  &  &  &  &  &  &  &  &  &  & X
 
 \section{Tests for Proof of Concept}
 
-\subsection{Area of Testing1}
+\subsection{Empty Table Generation}
 		
-\paragraph{Title for Test}
+\paragraph{Creating an empty Notion Table }
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{test-POC-1\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
+Type: Functional, Dynamic and Manual 
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
+Initial State: PDF Scraping completed
+
+Input: Dimensions and column headings 
+
+Output: Notion table
+
+How test will be performed: Based on the input of column headings and dimensions, we can assess whether the table is correctly generated from a visual standpoint. Manual testing can also be employed to determine whether a table can be made in Notion. 
 
 \end{enumerate}
 
-\subsection{Area of Testing2}
+\paragraph{Creating a Notion table with the corresponding deadlines and tasks}
 
-...
+\begin{enumerate}
+
+\item{test-POC-2\\}
+
+Type: Functional, Dynamic, Manual and Automated
+
+Initial State: PDF Scarping completed with the 2D list ready to be inputted. 
+
+Input: Structured data in the form of a 2D list in the front end (React) 
+
+Output: Notion table with the tasks and deadlines outlined in it 
+
+How the test will be performed: Automated testing will be employed using Mocha.js so that the table fields match their expected value. Manual testing will also be used to visually verify that the table creation is correct. 
+
+\end{enumerate}
+
+\subsection{PDF Scraping}
+
+\paragraph{Identifying structured deadlines}
+
+\begin{enumerate}
+
+\item{test-POC-3\\}
+
+Type: Functional. Dynamic, Automated, Unit
+
+Initial State: N/A
+
+Input: PDF 
+
+Output: All structured deadlines in the form of a 2D list
+
+How test will be performed: Unit testing will be used to input multiple PDFs into the scraper. The output should be compared to the PDF by manual inspection to ensure that the PDF was scraped correctly. 
+
+\end{enumerate}
 
 	
-\section{Comparison to Existing Implementation}	
+\section{Comparison to Existing Implementation}
+
+When comparing the current product (SaveTheDate) with the original product that Notion offers, there are a few differences. The layout and the visual user interface is identical to Notion. Both products use the feature that gives the user the option to write in a Heading, Paragraph etc. Since our application uses a Notion framework, the code structure and layout are fairly similar because it still has the option for tables, pages etc. The difference between our application and Notion’s is that there will be a button for table generation. This button will run the backend processes to scrape a PDF of the user’s choice. The scraped data will generate a table with all the relevant information from the PDF. There are multiple functions that are involved in order to scrape the PDF that will be tested for to ensure it output as intended. 
 				
 \section{Unit Testing Plan}
+
+Unit testing will be performed using the Pytest Framework including Mocha and Cypress
 		
 \subsection{Unit testing of internal functions}
-		
-\subsection{Unit testing of output files}		
+Unit testing for internal functions will be done for each function to enforce reliability and robustness. The tests include boundary and partition testing to catch errors, this is to avoid a potential system crash.  The purpose of unit testing is to ensure that our final version of the product will behave as it was originally intended and designed. The unit testing will use normal cases, boundary cases and abnormal ones that purposefully result in error states. Moreover, integration testing will also be implemented after unit testing to verify that the system’s output and its communication between functions and modules match what was outlined in the SRS. As a team, we have collectively decided to aim for 85\% for test coverage. 
+
+\subsection{Unit testing of output files}	
+The nature of our product does not produce any output files, as the PDF scraped table will only be added on to the original page of Notion. Therefore, unit testing for output files is not required. 	
 
 \bibliographystyle{plainnat}
 
