@@ -6,4 +6,5 @@
 *.out
 *.gz
 *.toc
-node_modules/*
+src/node_modules/*
+src/jsdoc/*
