@@ -6,5 +6,5 @@
 *.out
 *.gz
 *.toc
-src/node_modules/*
-src/jsdoc/*
+src/**/jsdoc/
+src/**/build/
