@@ -1,7 +1,9 @@
-import React from "react";
 import ReactDOM from "react-dom";
+import React, { Component }  from 'react';
 
 import EditablePage from "./editablePage";
+import EditableTable from "./editableTable";
+import LoadPDF from "./loadPDF";
 
 /**
  * @constant
@@ -24,6 +26,8 @@ ReactDOM.render(
       available elements.
     </p>
     <EditablePage />
+    <EditableTable />
+    <LoadPDF />
   </React.StrictMode>,
   rootElement
 );

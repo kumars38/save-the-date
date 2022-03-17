@@ -9,7 +9,14 @@
     "react": "16.13.1",
     "react-contenteditable": "3.3.5",
     "react-dom": "16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "^5.0.0",
+    "@popperjs/core": "^2.0.0",
+    "clsx": "1.1.1",
+    "faker": "^5.5.3",
+    "react-is": "17.0.2",
+    "react-popper": "^2.2.5",
+    "react-table": "7.7.0",
+    "react-pdf": "5.7.1"
   },
   "devDependencies": {
     "typescript": "3.8.3"
@@ -18,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "doc": "jsdoc -c jsdoc.json"
   },
   "browserslist": [
     ">0.2%",
