@@ -8,3 +8,4 @@
 *.toc
 src/**/jsdoc/
 src/**/build/
+src/**/node_modules/
