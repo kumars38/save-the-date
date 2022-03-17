@@ -3,7 +3,15 @@ import ReactDOM from "react-dom";
 
 import EditablePage from "./editablePage";
 
+/**
+ * @constant
+ * @type {React Component} rootElement - Obtains root element by id "root"
+ */
 const rootElement = document.getElementById("root");
+
+/**
+ * This is the main renderer of the application. This renders the instructions and the Editable Page.
+ */
 ReactDOM.render(
   <React.StrictMode>
     <h1 className="Logo">notion.clone</h1>

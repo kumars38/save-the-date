@@ -1,3 +1,7 @@
+/**
+ * This function gets the caret coordinates on the application page 
+ * @returns x,y The x and y caret coordinates
+ */
 export const getCaretCoordinates = () => {
   let x, y;
   const isSupported = typeof window.getSelection !== "undefined";
@@ -20,6 +24,10 @@ export const getCaretCoordinates = () => {
   return { x, y };
 };
 
+/**
+ * This function sets the caret to the end of the existing components
+ * @param {*} element This is the EditableBlock.
+ */
 export const setCaretToEnd = (element) => {
   // Create a new range
   const range = document.createRange();

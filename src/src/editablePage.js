@@ -6,9 +6,18 @@ import EditableBlock from "./editableBlock";
 import uid from "./utils/uid";
 import { setCaretToEnd } from "./utils/caretHelpers";
 
+/**
+ * @constant
+ * @type {Array<String>} initialBlock - Initial block id, html and tag
+ */
 const initialBlock = { id: uid(), html: "", tag: "p" };
 
+/** Class representing the editable page*/
 class EditablePage extends React.Component {
+  /**
+   * Constructor for the Editable Page.
+   * @param {HTML attribute} props HTML attribute being passed for constructing EditablePage
+   */
   constructor(props) {
     super(props);
     this.updatePageHandler = this.updatePageHandler.bind(this);
@@ -17,6 +26,10 @@ class EditablePage extends React.Component {
     this.state = { blocks: [initialBlock] };
   }
 
+  /**
+   * This function updates an editable block if the user makes any changes to the block.
+   * @param {EditableBlock} updatedBlock 
+   */
   updatePageHandler(updatedBlock) {
     const blocks = this.state.blocks;
     const index = blocks.map((b) => b.id).indexOf(updatedBlock.id);
@@ -29,6 +42,10 @@ class EditablePage extends React.Component {
     this.setState({ blocks: updatedBlocks });
   }
 
+  /**
+   * This function adds addition blocks if the user enters a new block
+   * @param {EditableBlock} currentBlock 
+   */
   addBlockHandler(currentBlock) {
     const newBlock = { id: uid(), html: "", tag: "p" };
     const blocks = this.state.blocks;
@@ -40,6 +57,10 @@ class EditablePage extends React.Component {
     });
   }
 
+  /**
+   * This fucntion deletes the block the user choose to delete.
+   * @param {EditableBlock} currentBlock 
+   */
   deleteBlockHandler(currentBlock) {
     // Only delete the block, if there is a preceding one
     const previousBlock = currentBlock.ref.previousElementSibling;
@@ -55,6 +76,10 @@ class EditablePage extends React.Component {
     }
   }
 
+  /**
+   * This function renders the output of the editable page
+   * @returns The rendering of the editable page
+   */
   render() {
     return (
       <div className="Page">

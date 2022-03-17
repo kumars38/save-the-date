@@ -6,9 +6,20 @@ import SelectMenu from "./selectMenu";
 
 import { getCaretCoordinates, setCaretToEnd } from "./utils/caretHelpers";
 
+/**
+ * @constant
+ * @type {CharacterData} CMD_KEY Command key to initial Select Menu
+ */
 const CMD_KEY = "/";
 
+/**
+ * Class representing the EditableBlock.
+ */
 class EditableBlock extends React.Component {
+  /**
+   * Constructor for the EditableBlock Class
+   * @param {HTML attribute} props HTML attribute being passed for constructing EditableBlock
+   */
   constructor(props) {
     super(props);
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -31,13 +42,18 @@ class EditableBlock extends React.Component {
     };
   }
 
+  /**
+   * This function sets the current state to the object state
+   */
   componentDidMount() {
     this.setState({ html: this.props.html, tag: this.props.tag });
   }
 
-  // Update the page component if one of the following is true:
-  // 1. user has changed the html content
-  // 2. user has changed the tag
+  /**
+   * This function updates the page components if the user has either changed the html content or the tag
+   * @param {*} prevProps The previous properties of the editable block state
+   * @param {*} prevState The previous state of the editable block state
+   */
   componentDidUpdate(prevProps, prevState) {
     const htmlChanged = prevState.html !== this.state.html;
     const tagChanged = prevState.tag !== this.state.tag;
@@ -50,10 +66,18 @@ class EditableBlock extends React.Component {
     }
   }
 
+  /**
+   * This function handles any changes to the HTML content of an EditableBlock
+   * @param {*} e 
+   */
   onChangeHandler(e) {
     this.setState({ html: e.target.value });
   }
 
+  /**
+   * This function handles any changes to the block from the user using key strokes
+   * @param {*} e This is the key stroke variable
+   */
   onKeyDownHandler(e) {
     if (e.key === CMD_KEY) {
       // If the user starts to enter a command, we store a backup copy of
@@ -85,16 +109,23 @@ class EditableBlock extends React.Component {
     this.setState({ previousKey: e.key });
   }
 
-  // The openSelectMenuHandler function needs to be invoked on key up. Otherwise
-  // the calculation of the caret coordinates does not work properly.
+  /**
+   * This function handles the SelectMenu on KeyUp input from the user
+   * @param {*} e This is the key stroke variable
+   */
   onKeyUpHandler(e) {
     if (e.key === CMD_KEY) {
+      // The openSelectMenuHandler function needs to be invoked on key up. Otherwise
+      // the calculation of the caret coordinates does not work properly.
       this.openSelectMenuHandler();
     }
   }
 
-  // After openening the select menu, we attach a click listener to the dom that
-  // closes the menu after the next click - regardless of outside or inside menu.
+  
+  /**
+   * This function operates after opening the SelectMenu, it then attaches a click listener to the dom that 
+   * closes the menu after the next click - regardless of outside or inside menu.
+   */
   openSelectMenuHandler() {
     const { x, y } = getCaretCoordinates();
     this.setState({
@@ -104,6 +135,9 @@ class EditableBlock extends React.Component {
     document.addEventListener("click", this.closeSelectMenuHandler);
   }
 
+  /**
+   * This function closes the SelectMenu and changes state of the SelectMenu. 
+   */
   closeSelectMenuHandler() {
     this.setState({
       htmlBackup: null,
@@ -113,15 +147,23 @@ class EditableBlock extends React.Component {
     document.removeEventListener("click", this.closeSelectMenuHandler);
   }
 
-  // Restore the clean html (without the command), focus the editable
-  // with the caret being set to the end, close the select menu
+  /**
+   * This function assigns the tag to the EditableBlock.
+   * @param {String} tag This is the tag for the HTML component for EditableBlock
+   */
   tagSelectionHandler(tag) {
+    // Restore the clean html (without the command), focus the editable
+    // with the caret being set to the end, close the select menu
     this.setState({ tag: tag, html: this.state.htmlBackup }, () => {
       setCaretToEnd(this.contentEditable.current);
       this.closeSelectMenuHandler();
     });
   }
 
+  /**
+   * This function renders the output of the EditableBlock and SelectMenu
+   * @returns The rendering of the EditableBlock and SelectMenu
+   */
   render() {
     return (
       <>

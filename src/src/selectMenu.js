@@ -1,7 +1,16 @@
 import React from "react";
 import { matchSorter } from "match-sorter";
 
+/**
+ * @constant
+ * @type {number} MENU_HEIGHT - The height of the menu
+ */
 const MENU_HEIGHT = 150;
+
+/**
+ * @constant
+ * @type {Array<String>} allowedTags - Array of String for allowed html tags
+ */
 const allowedTags = [
   {
     id: "page-title",
@@ -25,7 +34,14 @@ const allowedTags = [
   }
 ];
 
+/**
+ *
+ */
 class SelectMenu extends React.Component {
+  /**
+   * Constructor for the Select Menu Class
+   * @param {HTML attribute} props HTML attribute being passed for constructing SelectMenu
+   */
   constructor(props) {
     super(props);
     this.keyDownHandler = this.keyDownHandler.bind(this);
@@ -36,12 +52,18 @@ class SelectMenu extends React.Component {
     };
   }
 
-  // Attach a key listener to add any given key to the command
+  /**
+   * This function attaches a key listener to add any given key to the command
+   */
   componentDidMount() {
     document.addEventListener("keydown", this.keyDownHandler);
   }
 
-  // Whenever the command changes, look for matching tags in the list
+  /**
+   * This fucntion checks whenever the command changes and looks for matching tags in the allowed list
+   * @param {*} prevProps The previous properties of the editable block
+   * @param {*} prevState The previous state of the editable block
+   */
   componentDidUpdate(prevProps, prevState) {
     const command = this.state.command;
     if (prevState.command !== command) {
@@ -50,10 +72,17 @@ class SelectMenu extends React.Component {
     }
   }
 
+  /**
+   * This fucntion unmounts the key listener
+   */
   componentWillUnmount() {
     document.removeEventListener("keydown", this.keyDownHandler);
   }
 
+  /**
+   * This function hands the user input through key strokes
+   * @param {*} e This is the key stroke variable
+   */
   keyDownHandler(e) {
     const items = this.state.items;
     const selected = this.state.selectedItem;
@@ -85,6 +114,10 @@ class SelectMenu extends React.Component {
     }
   }
 
+  /**
+   * This function renders the output of the select menu option
+   * @returns The rendering of the editable block
+   */
   render() {
     // Define the absolute position before rendering
     const x = this.props.position.x;
