@@ -8,8 +8,8 @@ import {randomColor} from "./utils";
 
 /**
  * 
- * @param {*} param0 
- * @returns 
+ * @param {Array<Object>}  
+ * @returns element 
  */
 export default function Cell({value: initialValue, row: {index}, column: {id, dataType, options}, dataDispatch}) {
   const [value, setValue] = useState({value: initialValue, update: false});
@@ -33,7 +33,7 @@ export default function Cell({value: initialValue, row: {index}, column: {id, da
   }, [value, dataDispatch, id, index]);
 
   /**
-   * 
+   * This function handles KeyDown options from user input.
    * @param {*} e 
    */
   function handleOptionKeyDown(e) {
@@ -51,8 +51,8 @@ export default function Cell({value: initialValue, row: {index}, column: {id, da
   }
 
   /**
-   * 
-   * @param {*} e 
+   * This function handles additions rows added to the column.
+   * @param {*} e This is the key stroke variable.
    */
   function handleAddOption(e) {
     setShowAdd(true);

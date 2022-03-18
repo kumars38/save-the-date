@@ -13,8 +13,9 @@ import PlusIcon from "./img/Plus";
 import {shortId} from "./utils";
 
 /**
- * 
- * @param {*} param0 
+ * This function is the constructor fucntion for Header.
+ * @constructor
+ * @param {*} param0
  * @returns 
  */
 export default function Header({
@@ -34,6 +35,10 @@ export default function Header({
   const [typeReferenceElement, setTypeReferenceElement] = useState(null);
   const [typePopperElement, setTypePopperElement] = useState(null);
   const [showType, setShowType] = useState(false);
+  /**
+   * @constant 
+   * @uses ArrowDownIcon
+   */
   const buttons = [
     {
       onClick: (e) => {
@@ -82,6 +87,10 @@ export default function Header({
     }
   ];
 
+  /**
+   * @constant
+   * 
+   */
   const types = [
     {
       onClick: (e) => {
@@ -112,6 +121,9 @@ export default function Header({
     }
   ];
 
+  /**
+   * @variable {React DOM} propertyIcon  
+   */
   let propertyIcon;
   switch (dataType) {
     case "number":
@@ -144,11 +156,18 @@ export default function Header({
     }
   }, [inputRef]);
 
+  /**
+   * 
+   */
   const typePopper = usePopper(typeReferenceElement, typePopperElement, {
     placement: "right",
     strategy: "fixed"
   });
 
+  /**
+   * 
+   * @param {*} e 
+   */
   function handleKeyDown(e) {
     if (e.key === "Enter") {
       dataDispatch({type: "update_column_header", columnId: id, label: header});
@@ -156,10 +175,18 @@ export default function Header({
     }
   }
 
+  /**
+   * 
+   * @param {*} e 
+   */
   function handleChange(e) {
     setHeader(e.target.value);
   }
 
+  /**
+   * 
+   * @param {*} e 
+   */
   function handleBlur(e) {
     e.preventDefault();
     dataDispatch({type: "update_column_header", columnId: id, label: header});

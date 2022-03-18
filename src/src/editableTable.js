@@ -1,16 +1,15 @@
 import React, { useEffect, useReducer } from "react";
 import "./styleTable.css";
-import makeData from "./utils/loadData";
 import Table from "./utils/Table";
 import { randomColor, shortId } from "./utils/utils";
 import { grey } from "./utils/colors";
 import loadData from "./utils/loadData";
 
 /**
- * 
- * @param {*} state 
- * @param {*} action 
- * @returns 
+ * This function is is used to reduce the actions performed on the EditableTable.
+ * @param {React Component} state 
+ * @param {String} action 
+ * @returns This function returns the state of the EditableTable.
  */
 function reducer(state, action) {
   switch (action.type) {
@@ -221,8 +220,8 @@ function reducer(state, action) {
 }
 
 /**
- * 
- * @returns 
+ * This fucntion is the constructor for the EditableTable and renders the EditableTable.
+ * @returns The rendering of the EditableTable.
  */
 function EditableTable() {
   const [state, dispatch] = useReducer(reducer, loadData(10));

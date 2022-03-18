@@ -35,7 +35,7 @@ const allowedTags = [
 ];
 
 /**
- *
+ * This function is the class for SelectMenu. 
  */
 class SelectMenu extends React.Component {
   /**

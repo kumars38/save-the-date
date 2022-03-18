@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 
 /**
- * 
+ * This function returns the Header text format.
  * @returns 
  */
 export default function Text() {

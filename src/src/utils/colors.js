@@ -1,7 +1,7 @@
 /**
- * 
- * @param {*} value 
- * @returns 
+ * THis function returns the colour from the preset reference array.
+ * @param {number} value An interger value.
+ * @returns The colour from the preset reference array
  */
 export function grey(value) {
   let reference = {
