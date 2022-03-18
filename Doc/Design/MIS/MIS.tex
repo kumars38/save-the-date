@@ -1482,4 +1482,129 @@ None.
 \item exception: none
 \end{itemize}
 
+
+
+\newpage
+
+\section{PDFScraper Module}
+
+\subsection{Template Module}
+
+PDFScraper
+
+\subsection{Uses}
+
+DateTime, Tabula-py, Pandas
+
+\subsection{Description}
+This module handles obtaining date and task information from a PDF file.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None
+
+\subsubsection{Exported Types}
+
+2D List of (String, String)
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & ~ & ~ & ~\\
+  \hline
+  importFile & String & ~ & ValueError\\
+  \hline
+  isDateHeading & String & Boolean & ~\\
+  \hline
+  getDataFrames & Number, Number & List of DataFrames & ValueError\\
+  \hline
+  getDeadlines & List of DataFrames & Number & ~\\
+  \hline
+  generateOutput & List of DataFrames, Number & 2D List of (String, String) & ~\\
+  \hline
+  scrape & String, Number, Number & 2D List of (String, String) & ~\\
+  \hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{dateStrings}: \text{List of String}$\\
+$\mathit{dates}: \text{List of String}$\\
+$\mathit{tasks}: \text{List of String}$
+$\mathit{filePath}: \text{String}$
+
+\subsubsection{State Invariant}
+
+None
+
+\subsubsection{Assumptions}
+
+It is assumed that a single instance of PDFScraper will be used.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor():
+\begin{itemize}
+\item transition: $\mathit{dateStrings} := \text{Appropriate date identifiers}$,
+$\mathit{dates} := \text{Empty list}$, $\mathit{tasks} := \text{Empty list}$,
+$\mathit{filePath} := \text{null}$
+\item output: $out := \mbox{self}$
+\item exception: None
+\end{itemize}
+
+\noindent importFile(filePath):
+\begin{itemize}
+\item transition: $\mathit{filePath} := \text{filePath}$
+\item output: None
+\item exception: $\mathit{exc} := \text{filePath does not end in .pdf} \Rightarrow \mathit{ValueError}$
+\end{itemize}
+
+\noindent isDateHeading(heading):
+\begin{itemize}
+\item transition: None 
+\item output: $out := \mathit{heading}$ is a valid date identifier
+\item exception: None
+\end{itemize}
+
+\noindent getDataFrames(startPage, endPage):
+\begin{itemize}
+\item transition: None 
+\item output: This function returns a list of DataFrame objects corresponding to tabular data from the PDF
+file for only the specified page range.
+\item exception: $\mathit{exc} := (\mathit{startPage} < 1) \lor (\mathit{startPage} > \mathit{endPage}) \Rightarrow \mathit{ValueError}$
+\end{itemize}
+
+\noindent getDeadlines(dfs):
+\begin{itemize}
+\item transition: $\mathit{dates} := \text{Scraped dates}$, $\mathit{tasks} := \text{Scraped tasks}$
+\item output: This function returns the number of date tables found based on the list of data frames:
+$out := \text{numDateTables}$. It should use the isDateHeading() access routine to test potential identifiers.
+\item exception: None
+\end{itemize}
+
+\noindent generateOutput(dfs, numDateTables):
+\begin{itemize}
+\item transition: $\mathit{dates} := \text{Scraped dates}$, $\mathit{tasks} := \text{Scraped tasks}$
+\item output: This function returns a 2D list in the form [(date1, task1), (date2, task2), ...] using the
+updated $\mathit{dates}$ and $\mathit{tasks}$ state variables.
+\item exception: None
+\end{itemize}
+
+\noindent scrape(filePath, startPage, endPage):
+\begin{itemize}
+\item transition: None
+\item output: This function uses the importFile(), getDataFrames(), getDeadlines(), and generateOutput() access routines together
+to determine and output a 2D list in the form [(date1, task1), (date2, task2), ...].
+\item exception: None
+\end{itemize}
+
 \end{document}
