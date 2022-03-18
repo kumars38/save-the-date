@@ -1,0 +1,1485 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{xspace}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[normalem]{ulem}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage[round]{natbib}
+
+\title{SE 3XA3: Module Interface Specification\\Save The Date}
+
+\author{
+        Karuka Khurana (khurak1)\\
+        Utsharga Rozario (rozariou)\\
+        Samarth Kumar (kumars38)\\
+        Dhruv Cheemakurti (cheemakd)\\
+        \\
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\pagenumbering{roman}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\newpage
+
+\begin{table}[h!]
+\caption{\bf Revision History}
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\midrule
+March 14 & 1.0 &
+\begin{tabular}{>{\raggedright\arraybackslash}X}Initial React Doc By Utsharga\end{tabular}\\
+\midrule
+March 16 & 1.0 &
+\begin{tabular}{>{\raggedright\arraybackslash}X}Updated React Doc By Utsharga\\Updated Python Doc By Samarth\end{tabular}\\
+\midrule
+March 18 & 1.1 &
+\begin{tabular}{>{\raggedright\arraybackslash}X}Updated React Doc By Utsharga\\Updated Python Doc By Samarth\end{tabular}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\clearpage
+
+\pagenumbering{arabic}
+
+\newpage
+
+\section{editablePage Module}
+
+\subsection{Template Module extends React.Component}
+
+editablePage
+
+\subsection{Uses}
+
+editableBlock, uid, caretHelpers
+
+\subsection{Description}
+This module represents the page. It details the suite of functions that are able to be executed on a page: editing, adding and deleting. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+$\mathit{initialBlock}: \text{EditableBlock}$
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  updatePageHandler & EditableBlock & ~ & ~\\
+  \hline
+  addBlockHandler & EditableBlock & ~ & ~\\
+  \hline
+  deleteBlockHandler & EditableBlock & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+$\mathit{updatedBlock}: \text{EditableBlock}$\\
+$\mathit{currentBlock}: \text{EditableBlock}$
+
+\subsubsection{State Invariant}
+
+None
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = initialBlock$
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent updatePageHandler(updatedBlock):
+\begin{itemize}
+\item transition: This function updates an editable block if the user makes any changes to the block.
+\item exception: none
+\end{itemize}
+
+\noindent addBlockHandler(currentBlock):
+\begin{itemize}
+\item transition: This function adds addition blocks if the user enters a new block.
+\item exception: none
+\end{itemize}
+
+\noindent deleteBlockHandler(currentBlock):
+\begin{itemize}
+\item transition: This fucntion deletes the block the user choose to delete.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output of the editable page.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{editableBlock Module}
+
+\subsection{Template Module extends React.Component}
+
+editableBlock
+
+\subsection{Uses}
+
+selectMenu, caretHelpers
+
+\subsection{Description}
+This module represents a block in the page. It details the suite of functions that are able to be executed on a block: editing, adding and deleting. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+$\mathit{CMD_KEY}: \text{Character}$
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  componentDidMount & ~ & ~ & ~\\
+  \hline
+  componentDidUpdate & EditableTable.state & ~ & ~\\
+  \hline
+  onChangeHandler & keystroke & ~ & ~\\
+  \hline
+  onKeyDownHandler & keystroke & ~ & ~\\
+  \hline
+  onKeyUpHandler & keystroke & ~ & ~\\
+  \hline
+  openSelectMenuHandler & ~ & ~ & ~\\
+  \hline
+  closeSelectMenuHandler & ~ & ~ & ~\\
+  \hline
+  tagSelectionHandler & String & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+  
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+$\mathit{prevState}: \text{EditableTable.state}$
+
+\subsubsection{State Invariant}
+
+$\mathit{e}: \text{keystroke}$
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = null $
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent componentDidMount():
+\begin{itemize}
+\item transition: This function sets the current state to the object state.
+\item exception: none
+\end{itemize}
+
+\noindent componentDidUpdate(prevState):
+\begin{itemize}
+\item transition: This function updates the page components if the user has either changed the html content or the tag.
+\item exception: none
+\end{itemize}
+
+\noindent onChangeHandler(e):
+\begin{itemize}
+\item transition: This function handles any changes to the HTML content of an EditableBlock.
+\item exception: none
+\end{itemize}
+
+\noindent onKeyDownHandler(e):
+\begin{itemize}
+\item transition: This function handles any changes to the block from the user using key strokes.
+\item exception: none
+\end{itemize}
+
+\noindent onKeyUpHandler(e):
+\begin{itemize}
+\item transition: This function handles the SelectMenu on KeyUp input from the user.
+\item exception: none
+\end{itemize}
+
+\noindent openSelectMenuHandler():
+\begin{itemize}
+\item transition: This function operates after opening the SelectMenu, it then attaches a click listener to the dom.
+\item output: This function closes the menu after the next click - regardless of outside or inside menu.
+\item exception: none
+\end{itemize}
+
+\noindent closeSelectMenuHandler():
+\begin{itemize}
+\item transition: This function changes state of the SelectMenu. 
+\item output: This function closes the SelectMenu.
+\item exception: none
+\end{itemize}
+
+\noindent tagSelectionHandler(tag):
+\begin{itemize}
+\item transition: This function assigns the tag to the EditableBlock.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output of the EditableBlock and SelectMenu
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{selectMenu Module}
+
+\subsection{Template Module extends React.Component}
+
+selectMenu
+
+\subsection{Uses}
+
+None
+
+\subsection{Description}
+This module represents a menu in the page. It details the suite of functions that are able to be executed on a menu: selecting. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+$\mathit{allowedTags}: \text{Array of String}$\\
+$\mathit{MENU\_HEIGHT}: \text{Number}$
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  componentDidMount & ~ & ~ & ~\\
+  \hline
+  componentDidUpdate & selectMenu.state & ~ & ~\\
+  \hline
+  componentWillUnmount & ~ & ~ & ~\\
+  \hline
+  keyDownHandler & keystroke & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+$\mathit{updatedBlock}: \text{EditableBlock}$\\
+$\mathit{currentBlock}: \text{EditableBlock}$
+
+\subsubsection{State Invariant}
+
+$\mathit{e}: \text{keystroke}$
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = null $
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent componentDidMount():
+\begin{itemize}
+\item transition: This function attaches a key listener to add any given key to the command
+\item exception: none
+\end{itemize}
+
+\noindent componentDidUpdate(prevState):
+\begin{itemize}
+\item transition: This function checks whenever the command changes and looks for matching tags in the allowed list.
+\item exception: none
+\end{itemize}
+
+\noindent componentWillMount():
+\begin{itemize}
+\item transition: This function unmounts the key listener.
+\item exception: none
+\end{itemize}
+
+\noindent onKeyDownHandler(e):
+\begin{itemize}
+\item transition: This function hands the user input through key strokes.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output of the select menu option
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{button Module}
+
+\subsection{Template Module extends React.Component}
+
+button
+
+\subsection{Uses}
+
+EditableBlock, EditableTable, loadPDF, scrapePDF, image, SelectMenu
+
+\subsection{Description}
+This module represents the button on the side of every block. It details the suite of functions that are able to be executed on the block. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  OptionHander & keystroke & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{State Invariant}
+
+None.
+
+\subsubsection{Assumptions}
+
+$\mathit{e}: \text{keystroke}$
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = initialBlock$
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent OptionHander(e):
+\begin{itemize}
+\item output: This function obtains the user input as one of the available options which it then initiates.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the button and the selectMenu on click.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{editableTable Module}
+
+\subsection{Template Module extends React.Component}
+
+editableTable
+
+\subsection{Uses}
+
+Table, loadData, utils, colors
+
+\subsection{Description}
+This module represents a table in the page. It details the suite of functions that are able to be executed on a menu: adding, editing and deleting. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  reducer & Table.state, Table.action & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+$\mathit{state}: \text{Table.state}$\\
+$\mathit{action}: \text{Table.action}$
+
+\subsubsection{State Invariant}
+
+None
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = null $
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent reducer(state, action):
+\begin{itemize}
+\item transition: This function is is used to reduce the actions performed on the EditableTable.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function returns the rendering of the EditableTable.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{Table Module}
+
+\subsection{Template Module extends React.Component}
+
+Table
+
+\subsection{Uses}
+
+Cell, Header
+
+\subsection{Description}
+This module represents a table in the page. Its function is to only render the table itself. It is therefore a boundary module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+$\mathit{defaultColumn}: \text{Array of String}$
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & 2D Array, Array & ~ & ~\\
+  \hline
+  useMemo & ~ & Number & ~\\
+  \hline
+  useTable & ~ & ~ & ~\\
+  \hline
+  isTableResizing & ~ & Boolean & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{data}: \text{2D Array}$\\
+$\mathit{columns}: \text{Array}$
+
+\subsubsection{State Invariant}
+
+None
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = data, columns $
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent useMemo():
+\begin{itemize}
+\item output: This function sets up all of the rows and columns.
+\item exception: none
+\end{itemize}
+
+\noindent useTable():
+\begin{itemize}
+\item transition: This function adjusts all of the sizing of the table.
+\item exception: none
+\end{itemize}
+
+\noindent isTableResizing():
+\begin{itemize}
+\item output: This function checks if the table needs resizing.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the outcome of the Table.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{Header Module}
+
+\subsection{Template Module extends React.Component}
+
+Header
+
+\subsection{Uses}
+
+utils, Text, colors
+
+\subsection{Description}
+This module represents a Header of a Table in the page. It details the suite of functions that are able to be executed on a menu: selecting. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+$\mathit{buttons}: \text{Array of Strings}$\\
+$\mathit{types}: \text{Array of Strings}$\\
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  setExpanded & Boolean & ~ & ~\\
+  \hline
+  setHeader & String & ~ & ~\\
+  \hline
+  handleKeyDown & keystroke & ~ & ~\\
+  \hline
+  handleChange & keystroke & ~ & ~\\
+  \hline
+  handleBlur & keystroke & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+$\mathit{label}: \text{String}$
+
+\subsubsection{State Invariant}
+
+$\mathit{e}: \text{keystroke}$
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = null$
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent setExpanded():
+\begin{itemize}
+\item transition: This function sets up the Header to be expandable.
+\item exception: none
+\end{itemize}
+
+\noindent setHeader(label):
+\begin{itemize}
+\item transition: This function sets the Header to the label.
+\item exception: none
+\end{itemize}
+
+\noindent handleKeyDown():
+\begin{itemize}
+\item transition: This function handles the user input on key down strokes.
+\item exception: none
+\end{itemize}
+
+\noindent handleChange(e):
+\begin{itemize}
+\item transition: This function handles changes in the user input through key strokes.
+\item exception: none
+\end{itemize}
+
+\noindent handleBlur(e):
+\begin{itemize}
+\item transition: This function updates the Header.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the outcome of the Header.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{Cell Module}
+
+\subsection{Template Module extends React.Component}
+
+Cell
+
+\subsection{Uses}
+
+utils, colors
+
+\subsection{Description}
+This module represents a Cell in a Table in the page. It details the suite of functions that are able to be executed on a menu: selecting, editing and deleting. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  setValue & String & ~ & ~\\
+  \hline
+  dataDispatch & Cell & ~ & ~\\
+  \hline
+  handleOptionKeyDown & keystroke & ~ & ~\\
+  \hline
+  handleAddOption & keystroke & ~ & ~\\
+  \hline
+  handleOptionBlur & keystroke & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+$\mathit{value}: \text{string}$\\
+$\mathit{dataCell}: \text{Cell}$
+
+\subsubsection{State Invariant}
+
+$\mathit{e}: \text{keystroke}$
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = null $
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent setValue(value):
+\begin{itemize}
+\item transition: This function set the value based on input.
+\item exception: none
+\end{itemize}
+
+\noindent dataDispatch(dataCell):
+\begin{itemize}
+\item transition: This function updates data using dataCell.
+\item exception: none
+\end{itemize}
+
+\noindent handleOptionKeyDown(e):
+\begin{itemize}
+\item transition: This function handles KeyDown options from user input.
+\item exception: none
+\end{itemize}
+
+\noindent handleAddOption(e):
+\begin{itemize}
+\item transition: This function handles additions rows added to the column.
+\item exception: none
+\end{itemize}
+
+\noindent handleOptionBlur(e):
+\begin{itemize}
+\item transition: This function updates data based on the key stroke.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output of the Cell.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{Relationship Module}
+
+\subsection{Template Module extends React.Component}
+
+Relationship
+
+\subsection{Uses}
+
+None
+
+\subsection{Description}
+This module represents a Relationship in the Cell of a Table in the page. It function to only render the relationship. It is therefore a boundary module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+colors
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{State Invariant}
+
+None.
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent render():
+\begin{itemize}
+\item output: $ReactDOM$
+\item exception: none
+\end{itemize}
+
+\section{Text Module}
+
+\subsection{Template Module extends React.Component}
+
+Text
+
+\subsection{Uses}
+
+None
+
+\subsection{Description}
+This module represents a Text in the Cell of a Table in the page. It function to only return a color as String. It is therefore a entity module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{State Invariant}
+
+None.
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent render():
+\begin{itemize}
+\item output: $ReactDOM$
+\item exception: none
+\end{itemize}
+
+\section{Colors Module}
+
+\subsection{Template Module extends React.Component}
+
+Colors
+
+\subsection{Uses}
+
+None
+
+\subsection{Description}
+This module represents a colors in the Cell of a Table in the page. It function to only render the relationship. It is therefore a entity module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  grey & Number & Number & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{value}: \text{Number}$
+
+\subsubsection{State Invariant}
+
+None.
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent grey(value):
+\begin{itemize}
+\item output: $out =$ String
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{uid Module}
+
+\subsection{Template Module}
+
+uid
+
+\subsection{Uses}
+
+None
+
+\subsection{Description}
+This module represents a uid generated for EditablePage and EditableBlock. It function to only output a string to other functions. It is therefore a entity module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  uid & ~ & String & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{State Invariant}
+
+None.
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent uid():
+\begin{itemize}
+\item output: $out =$ String
+\item exception: none
+\end{itemize}
+
+\section{caretHelpers Module}
+
+\subsection{Template Module}
+
+caretHelpers
+
+\subsection{Uses}
+
+None
+
+\subsection{Description}
+This module gets and sets coordinates for EditableBlock. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  getCaretCoordinates & ~ & Number, Number & ~\\
+  \hline
+  setCaretToEnd & Object & ~ & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{element}: \text{Object}$\\
+
+\subsubsection{State Invariant}
+
+None.
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent getCaretCoordinates():
+\begin{itemize}
+\item output: $out =$ Number, Number
+\item exception: none
+\end{itemize}
+
+\noindent setCaretToEnd(element):
+\begin{itemize}
+\item transition: This function sets the caret to the end of the existing components.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{utils Module}
+
+\subsection{Template Module}
+
+utils
+
+\subsection{Uses}
+
+None
+
+\subsection{Description}
+This module generates short IDs and random colours. It is therefore a entity module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  shortId & ~ & String & ~\\
+  \hline
+  randomColor & ~ & String & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{State Invariant}
+
+None.
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent shortId():
+\begin{itemize}
+\item output: This function creates a short unique ID from strings.
+\item exception: none
+\end{itemize}
+
+\noindent randomColor():
+\begin{itemize}
+\item output: This function generates random colours.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{loadPDF Module}
+
+\subsection{Template Module extends React.Component}
+
+loadPDF
+
+\subsection{Uses}
+
+None.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  onDocumentLoadSuccess & Number & ~ & ~\\
+  \hline
+  changePage & Number & ~ & ~\\
+  \hline
+  previousPage & ~ & ~ & ~\\
+  \hline
+  nextPage & ~ & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+$\mathit{numPages}: \text{Number}$\\
+$\mathit{offset}: \text{Number}$
+
+\subsubsection{State Invariant}
+
+None
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = initialBlock$
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent onDocumentLoadSuccess(numPages):
+\begin{itemize}
+\item transition: This function sets the number of pages and the initial page number to 1
+\item exception: none
+\end{itemize}
+
+\noindent changePage(offset):
+\begin{itemize}
+\item transition: This function calcuates the current page.
+\item exception: none
+\end{itemize}
+
+\noindent previousPage():
+\begin{itemize}
+\item transition: This function calculates the previous page by decrementing the current page.
+\item exception: none
+\end{itemize}
+
+\noindent nextPage():
+\begin{itemize}
+\item transition: This function calculates the next page by incrementing the current page.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output of the PDF.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{scrapePDFWindow Module}
+
+\subsection{Template Module extends React.Component}
+
+scrapePDFWindow
+
+\subsection{Uses}
+
+loadData, EditableTable
+
+\subsection{Description}
+This module represents the pop-up window when the user wants to scrape a document. It details the suite of functions that are able to be executed on the window: adding course name and selecting the PDF. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+$\mathit{courseName}: \text{String}$\\
+$\mathit{pageStart}: \text{Number}$\\
+$\mathit{pageEnd}: \text{Number}$
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  getCourseName & ~ & String & ~\\
+  \hline
+  getPageStart & ~ & Number & ~\\
+  \hline
+  getPageEnd & ~ & Number & ~\\
+  \hline
+  getFile & ~ & ~ & ~\\
+  \hline
+  scrape & ~ & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+$\mathit{numPages}: \text{Number}$\\
+$\mathit{offset}: \text{Number}$
+
+\subsubsection{State Invariant}
+
+None
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = initialBlock$
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent getCourseName():
+\begin{itemize}
+\item output: This function obtains the Course Name from the User
+\item exception: none
+\end{itemize}
+
+\noindent getPageStart():
+\begin{itemize}
+\item output: This function obtains the starting page to scrap from the User
+\item exception: none
+\end{itemize}
+
+\noindent getPageEnd():
+\begin{itemize}
+\item output: This function obtains the end page to scrape from the User
+\item exception: none
+\end{itemize}
+
+\noindent getFile():
+\begin{itemize}
+\item transition: This function obtains the file to scrape from the User.
+\item exception: none
+\end{itemize}
+
+\noindent scrape(fileName):
+\begin{itemize}
+\item transition: This function uses the user inputs from getCourseName, getPageStart, getPageEnd and getFile to initiate the python scraping.
+\item output: This function returns a 2D array of table that was obtained from scraping.
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output of the scraping as a table.
+\item exception: none
+\end{itemize}
+
+\newpage
+
+\section{image Module}
+
+\subsection{Template Module extends React.Component}
+
+image
+
+\subsection{Uses}
+
+None.
+
+\subsection{Description}
+This module represents an image on the page. It details the suite of functions that are able to be executed on the image: adding the image and rendering it. It is therefore a controller module.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Types}
+
+ReactDOM
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  getPictureLocation & ~ & ~ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+$\mathit{numPages}: \text{Number}$\\
+$\mathit{offset}: \text{Number}$
+
+\subsubsection{State Invariant}
+
+None
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = initialBlock$
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent getImageLocation():
+\begin{itemize}
+\item output: This function obtains the image location from the User
+\item exception: none
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output as an image component.
+\item exception: none
+\end{itemize}
+
+\end{document}
