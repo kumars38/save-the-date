@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="3XA3_L03_G17" company="McMaster University" webLink="https://gitlab.cas.mcmaster.ca/se3xa3_l03_g17/se3xa3_l03_g17" view-date="2022-01-14" view-index="0" gantt-divider-location="416" resource-divider-location="300" version="3.1.3103" locale="en_CA">
+<?xml version="1.0" encoding="UTF-8"?><project name="3XA3_L03_G17" company="McMaster University" webLink="https://gitlab.cas.mcmaster.ca/se3xa3_l03_g17/se3xa3_l03_g17" view-date="2022-03-06" view-index="0" gantt-divider-location="416" resource-divider-location="300" version="3.1.3103" locale="en_CA">
     <description/>
     <view zooming-state="default:3" id="gantt-chart">
-        <field id="tpd3" name="Name" width="221" order="0"/>
-        <field id="tpd4" name="Begin date" width="96" order="1"/>
-        <field id="tpd5" name="End date" width="95" order="2"/>
+        <field id="tpd3" name="Name" width="213" order="0"/>
+        <field id="tpd4" name="Begin date" width="92" order="1"/>
+        <field id="tpd5" name="End date" width="92" order="2"/>
         <timeline>
             <![CDATA[101]]>
         </timeline>
@@ -81,7 +81,37 @@
             <task id="100" name="Comparision to Existing Implementation" color="#8cb6ce" meeting="false" start="2022-03-11" duration="1" complete="100" thirdDate="2022-02-01" thirdDate-constraint="0" expand="true"/>
             <task id="101" name="Unit Testing Plan" color="#8cb6ce" meeting="false" start="2022-03-11" duration="1" complete="100" thirdDate="2022-02-01" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="20" name="Design &amp; Document Revision 0" color="#8cb6ce" meeting="false" start="2022-03-07" duration="10" complete="0" thirdDate="2022-02-16" thirdDate-constraint="0" expand="true"/>
+        <task id="20" name="Design &amp; Document Revision 0" color="#8cb6ce" meeting="false" start="2022-03-14" duration="5" complete="100" thirdDate="2022-02-16" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[Dhruv Cheemakurti did not contribute to this iteration.]]>
+            </notes>
+            <task id="104" name="Module Guide" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true">
+                <task id="147" name="Introduction" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="100" thirdDate="2022-03-18" thirdDate-constraint="0" expand="true"/>
+                <task id="148" name="Module Hierarchy" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="100" thirdDate="2022-03-18" thirdDate-constraint="0" expand="true"/>
+                <task id="149" name="Connection between Requirements and Design" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="100" thirdDate="2022-03-18" thirdDate-constraint="0" expand="true"/>
+                <task id="150" name="Module Decomposition" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="100" thirdDate="2022-03-18" thirdDate-constraint="0" expand="true"/>
+                <task id="151" name="Traceability Matrix" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="100" thirdDate="2022-03-18" thirdDate-constraint="0" expand="true"/>
+                <task id="152" name="Use Hierarchy Between Modules" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="100" thirdDate="2022-03-18" thirdDate-constraint="0" expand="true"/>
+                <task id="153" name="Schedule" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="100" thirdDate="2022-03-18" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="105" name="Module Interface Specification" meeting="false" start="2022-03-14" duration="5" complete="100" expand="true">
+                <task id="106" name="editablePage" color="#8cb6ce" meeting="false" start="2022-03-14" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="107" name="editableBlock" color="#8cb6ce" meeting="false" start="2022-03-14" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="109" name="selectMenu" color="#8cb6ce" meeting="false" start="2022-03-14" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="108" name="editableTable" color="#8cb6ce" meeting="false" start="2022-03-16" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="110" name="Table" color="#8cb6ce" meeting="false" start="2022-03-16" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="111" name="Header" color="#8cb6ce" meeting="false" start="2022-03-16" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="112" name="Cell" color="#8cb6ce" meeting="false" start="2022-03-16" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="113" name="Relationship" color="#8cb6ce" meeting="false" start="2022-03-16" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="114" name="Text" color="#8cb6ce" meeting="false" start="2022-03-16" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="115" name="Colors" color="#8cb6ce" meeting="false" start="2022-03-16" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="116" name="uid" color="#8cb6ce" meeting="false" start="2022-03-16" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="117" name="utils" color="#8cb6ce" meeting="false" start="2022-03-16" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="119" name="Image" color="#8cb6ce" meeting="false" start="2022-03-17" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="118" name="scraperPDFUser" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+                <task id="120" name="PDFscraper" color="#8cb6ce" meeting="false" start="2022-03-14" duration="5" complete="100" thirdDate="2022-01-14" thirdDate-constraint="0" expand="true"/>
+            </task>
+        </task>
         <task id="23" name="Revision 0 Demonstration" color="#8cb6ce" meeting="false" start="2022-03-14" duration="10" complete="0" thirdDate="2022-02-16" thirdDate-constraint="0" expand="true"/>
         <task id="26" name="Final Demonstration R1" color="#8cb6ce" meeting="false" start="2022-03-21" duration="15" complete="0" thirdDate="2022-03-08" thirdDate-constraint="0" expand="true"/>
         <task id="28" name="Final Documentation R1" color="#8cb6ce" meeting="false" start="2022-03-28" duration="11" complete="0" thirdDate="2022-03-11" thirdDate-constraint="0" expand="true"/>
@@ -113,6 +143,23 @@
         <allocation task-id="93" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
         <allocation task-id="94" resource-id="0" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
         <allocation task-id="103" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="20.0"/>
+        <allocation task-id="106" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="107" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="109" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="108" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="110" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="111" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="112" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="113" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="114" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="115" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="116" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="117" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="118" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="119" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="152" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
+        <allocation task-id="153" resource-id="0" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
+        <allocation task-id="150" resource-id="0" function="SoftwareDevelopment:2" responsible="false" load="5.0"/>
         <allocation task-id="0" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
         <allocation task-id="3" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
         <allocation task-id="7" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
@@ -135,6 +182,11 @@
         <allocation task-id="95" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
         <allocation task-id="96" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
         <allocation task-id="97" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="147" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
+        <allocation task-id="148" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
+        <allocation task-id="150" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="151" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="10.0"/>
+        <allocation task-id="149" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
         <allocation task-id="0" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
         <allocation task-id="3" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
         <allocation task-id="7" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
@@ -156,6 +208,7 @@
         <allocation task-id="93" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
         <allocation task-id="94" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="20.0"/>
         <allocation task-id="102" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="20.0"/>
+        <allocation task-id="120" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="40.0"/>
         <allocation task-id="0" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="5.0"/>
         <allocation task-id="10" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
         <allocation task-id="15" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="15.0"/>
