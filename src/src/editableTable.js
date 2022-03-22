@@ -224,7 +224,7 @@ function reducer(state, action) {
  * @returns The rendering of the EditableTable.
  */
 function EditableTable() {
-  const [state, dispatch] = useReducer(reducer, loadData(10));
+  const [state, dispatch] = useReducer(reducer, loadData(2));
 
   useEffect(() => {
     dispatch({ type: "enable_reset" });

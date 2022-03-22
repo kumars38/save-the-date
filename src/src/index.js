@@ -2,8 +2,9 @@ import ReactDOM from "react-dom";
 import React, { Component }  from 'react';
 
 import EditablePage from "./editablePage";
-import EditableTable from "./editableTable";
-import LoadPDF from "./loadPDF";
+import AddTableButton from "./addTableButton";
+import AddPDFButton from "./addPDFButton";
+import Image from "./editableImage";
 
 /**
  * @constant
@@ -26,8 +27,12 @@ ReactDOM.render(
       available elements.
     </p>
     <EditablePage />
-    <EditableTable />
-    <LoadPDF />
+    <h1 className="Logo"> This is the Table Section.</h1>
+    <AddTableButton />
+    <h1 className="Logo"> This is the Image Section.</h1>
+    <Image />
+    <h1 className="Logo"> This is the PDF Section.</h1>
+    <AddPDFButton />
   </React.StrictMode>,
   rootElement
 );

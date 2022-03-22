@@ -60,7 +60,7 @@ class SelectMenu extends React.Component {
   }
 
   /**
-   * This fucntion checks whenever the command changes and looks for matching tags in the allowed list
+   * This function checks whenever the command changes and looks for matching tags in the allowed list
    * @param {*} prevProps The previous properties of the editable block
    * @param {*} prevState The previous state of the editable block
    */

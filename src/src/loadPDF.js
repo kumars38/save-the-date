@@ -7,7 +7,8 @@ import pdfFile from './outline.pdf';
  * This function loads and renders the PDF from local storage.
  * @returns The function returns the rendering of the PDF.
  */
-function LoadPDF() {
+function LoadPDF(props) {
+    pdfFile = props.src;
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
   

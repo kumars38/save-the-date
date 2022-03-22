@@ -23,6 +23,9 @@ const defaultColumn = {
  * @returns 
  */
 export default function Table({columns, data, dispatch: dataDispatch, skipReset}) {
+  /**
+   * 
+   */
   const sortTypes = useMemo(
     () => ({
       alphanumericFalsyLast(rowA, rowB, columnId, desc) {

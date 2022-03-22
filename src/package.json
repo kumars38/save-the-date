@@ -5,18 +5,18 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@popperjs/core": "^2.0.0",
+    "clsx": "1.1.1",
+    "faker": "^5.5.3",
     "match-sorter": "5.0.0",
     "react": "16.13.1",
     "react-contenteditable": "3.3.5",
     "react-dom": "16.13.1",
-    "react-scripts": "^5.0.0",
-    "@popperjs/core": "^2.0.0",
-    "clsx": "1.1.1",
-    "faker": "^5.5.3",
     "react-is": "17.0.2",
+    "react-pdf": "5.7.1",
     "react-popper": "^2.2.5",
-    "react-table": "7.7.0",
-    "react-pdf": "5.7.1"
+    "react-scripts": "^5.0.0",
+    "react-table": "7.7.0"
   },
   "devDependencies": {
     "typescript": "3.8.3"

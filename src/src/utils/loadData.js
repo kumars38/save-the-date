@@ -12,11 +12,9 @@ export default function loadData(count) {
   for (let i = 0; i < count; i++) {
     let row = {
       ID: faker.mersenne.rand(),
-      firstName: faker.name.firstName(),
-      lastName: faker.name.lastName(),
-      email: faker.internet.email(),
-      age: Math.floor(20 + Math.random() * 20),
-      music: faker.music.genre()
+      CourseName: "Enter Course Name",
+      Description: "Enter Description",
+      DueDate: "April 02, 2022",
     };
     options.push({ label: row.music, backgroundColor: randomColor() });
 
@@ -28,44 +26,28 @@ export default function loadData(count) {
    */
   let columns = [
     {
-      id: "firstName",
-      label: "First Name",
-      accessor: "firstName",
+      id: "CourseName",
+      label: "Course Name",
+      accessor: "CourseName",
       minWidth: 100,
       dataType: "text",
       options: []
     },
     {
-      id: "lastName",
-      label: "Last Name",
-      accessor: "lastName",
+      id: "Description",
+      label: "Description",
+      accessor: "Description",
       minWidth: 100,
       dataType: "text",
       options: []
     },
     {
-      id: "age",
-      label: "Age",
-      accessor: "age",
-      width: 80,
-      dataType: "number",
-      options: []
-    },
-    {
-      id: "email",
-      label: "E-Mail",
-      accessor: "email",
-      width: 300,
+      id: "DueDate",
+      label: "DueDate",
+      accessor: "DueDate",
+      width: 100,
       dataType: "text",
       options: []
-    },
-    {
-      id: "music",
-      label: "Music Preference",
-      accessor: "music",
-      dataType: "select",
-      width: 200,
-      options: options
     },
     {
       id: 999999,
