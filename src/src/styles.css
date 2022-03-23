@@ -112,4 +112,17 @@ body {
   display: block;
 }
 
-/** PDFs */
+/** Footer */
+.footer {
+  background: purple;
+  font-size: 1.8rem;
+  color: white;
+  border-top: 1px solid #E7E7E7;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+}

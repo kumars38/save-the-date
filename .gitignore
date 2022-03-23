@@ -9,3 +9,5 @@
 src/**/jsdoc/
 src/**/build/
 src/**/node_modules/
+src/backend/src/__pycache__/
+src/backend/src/venv/

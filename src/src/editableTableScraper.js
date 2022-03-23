@@ -3,7 +3,7 @@ import "./styleTable.css";
 import Table from "./utils/Table";
 import { randomColor, shortId } from "./utils/utils";
 import { grey } from "./utils/colors";
-import loadData from "./utils/loadData";
+import loadData from "./utils/loadDataScraper";
 
 /**
  * This function is is used to reduce the actions performed on the EditableTable.
@@ -223,8 +223,10 @@ function reducer(state, action) {
  * This fucntion is the constructor for the EditableTable and renders the EditableTable.
  * @returns The rendering of the EditableTable.
  */
-function EditableTable() {
-  const [state, dispatch] = useReducer(reducer, loadData(2));
+function EditableTableScraper(props) {
+  const [state, dispatch] = useReducer(reducer, loadData(props));
+
+  //console.log(props.data)
 
   useEffect(() => {
     dispatch({ type: "enable_reset" });
@@ -247,7 +249,7 @@ function EditableTable() {
           flexDirection: "column"
         }}
       >
-        <h1 style={{ color: grey(800) }}>Editable React Table</h1>
+        <h1 style={{ color: grey(800) }}>Deadline Table</h1>
       </div>
       <div style={{ overflow: "auto", display: "flex" }}>
         <div
@@ -271,4 +273,4 @@ function EditableTable() {
   );
 }
 
-export default EditableTable;
+export default EditableTableScraper;

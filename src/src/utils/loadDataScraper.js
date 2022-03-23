@@ -1,4 +1,5 @@
-import faker from "faker";
+import faker from 'faker';
+import React, { useState, useEffect } from "react";
 import { randomColor } from "./utils";
 
 /**
@@ -6,18 +7,22 @@ import { randomColor } from "./utils";
  * @param {*} count 
  * @returns 
  */
-export default function loadData(count) {
+export default function loadData(props) {
+  console.log(props.data.scrapedData)
+  var arr = props.data.scrapedData;
   let data = [];
   let options = [];
+  //console.log(Object.keys(arr).length);
+
+  const count = arr.length;
   for (let i = 0; i < count; i++) {
     let row = {
       ID: faker.mersenne.rand(),
-      CourseName: "Enter Course Name",
-      Description: "Enter Description",
-      DueDate: "April 02, 2022",
+      //CourseName: "Enter Course Name",
+      Description: arr[i][1],
+      DueDate: arr[i][0],
     };
     options.push({ label: row.music, backgroundColor: randomColor() });
-
     data.push(row);
   }
 
@@ -25,14 +30,14 @@ export default function loadData(count) {
    * 
    */
   let columns = [
-    {
+    /*{
       id: "CourseName",
       label: "Course Name",
       accessor: "CourseName",
       minWidth: 100,
       dataType: "text",
       options: []
-    },
+    }*/,
     {
       id: "Description",
       label: "Description",
@@ -43,7 +48,7 @@ export default function loadData(count) {
     },
     {
       id: "DueDate",
-      label: "DueDate",
+      label: "Due Date",
       accessor: "DueDate",
       width: 100,
       dataType: "text",
