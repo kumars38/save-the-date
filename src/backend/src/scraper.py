@@ -122,11 +122,11 @@ class PDFScraper():
     def generateOutput(self, dfs, numDateTables):
         outList = []
         numDates = len(self.dates)
-        print(str(len(dfs))+" total tables found.")
-        print(str(numDates)+" date/task entries found across "+str(numDateTables)+" tables.")
+        #print(str(len(dfs))+" total tables found.")
+        #print(str(numDates)+" date/task entries found across "+str(numDateTables)+" tables.")
         for i in range(numDates):
             outList.append([self.dates[i],self.tasks[i]])
-            print(outList[i]) # For display only
+            #print(outList[i]) # For display only
         return outList
 
     ## @brief This function drives the scraping function by connecting the other class functions together
