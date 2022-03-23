@@ -46,8 +46,9 @@ February 10 & 1.0 & SRS was created\\
 February 10 & 1.1 & Non-functional requirements completed\\
 February 10 & 1.2 & Project drivers completed\\
 February 11 & 1.3 & Project issues completed\\
-February 11 & 1.4 & Functional requirements and project constraints completed (SRS Rev.0 complete)\\
+February 11 & 1.4 & Functional requirements and project constraints completed\\
 March 10 & 1.5 & Functional requirements updated due to outdated source code components\\
+March 20 & 1.6 & Revision 0: Functional requirements updated by developer, Karuka Khurana\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -266,7 +267,7 @@ SaveTheDate is a standalone application that does not interact with other system
 \subsubsection{FR2}
 
 \begin{description}
-  \item[Description:] The system shall have a way to select the page range they want to scrape. 
+  \item[Description:] The system shall have a way to select the page range they want to scrape \textcolor{red}{through a button}. 
   \item[Rationale:] If the user knows the range in which the deadlines might exist in the document, the application can scrape over a specified page range, minimizing processing time. 
   \item[Priority:] High
 \end{description}
@@ -354,12 +355,92 @@ SaveTheDate is a standalone application that does not interact with other system
   \item[Priority:] Low
 \end{description}
 
-\subsubsection{FR11}
+\subsubsection{\sout{FR12}}
 
 \begin{description}
-  \item[Description:] The system shall have a button that has all the available functionalities.
-  \item[Rationale:] All the functionalities should be available through the button function.
-  \item[Priority:] High
+  \item[\sout{Description:}] \sout{The system shall have a button that has all the available functionalities.}
+  \item[\sout{Rationale:}] \sout{All the functionalities should be available through the button function.}
+  \item[\sout{Priority:}] \sout{High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR12}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a way to add a table in a notion page.}
+	\item \textcolor{red}{Rationale: If a user wants to manually input information onto a notion page, the user must be able to add a table when needed.}
+	\item \textcolor{red}{Priority: High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR13}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a way to add multiple tables to a notion page.}
+	\item \textcolor{red}{Rationale: If a user wants to add more than one table to categorize information, or has new information, the user must be able to add multiple tables when needed.}
+	\item \textcolor{red}{Priority: High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR14}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a way to delete a table in a notion page.}
+	\item \textcolor{red}{Rationale: If a user does not need the information anymore, there should be the option to delete the table.}
+	\item \textcolor{red}{Priority: High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR15}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a way to delete multiple tables from a notion page.}
+	\item \textcolor{red}{Rationale: If a user does not need any of the information, there should be the option to delete the table(s). This will keep their dashboard clean, organized, and easy to read.}
+	\item \textcolor{red}{Priority: High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR16}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a way for user to scroll through pages of an uploaded PDF.}
+	\item \textcolor{red}{Rationale: If a user wants to keep a PDF in their dashboard for easy access to a file, the user must have the ease of scrolling through the document within Notion as opposed to locally. This will save time and be more efficient.}
+	\item \textcolor{red}{Priority: High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR17}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a way to add multiple PDFs to a notion page.}
+	\item \textcolor{red}{Rationale: If a user wants to keep multiple PDFS in their dashboard for easy access, there should be the option to add more than one document so the user does not have to prioritize only one. }
+	\item \textcolor{red}{Priority: High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR18}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a way to delete a PDF on a notion page.}
+	\item \textcolor{red}{Rationale: If a user does not need a PDF anymore, there must be an option to delete the document.}
+	\item \textcolor{red}{Priority: High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR19}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a way to delete multiple PDFs on a notion page.}
+	\item \textcolor{red}{Rationale: If a user does not need a PDF anymore, there must be an option to delete the document(s). This will keep their dashboard clean, organized, and easy to read.}
+	\item \textcolor{red}{Priority: High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR20}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a button to confirm upload of image.}
+	\item \textcolor{red}{Rationale: Once the user has selected an image from their local computer, they must have the option to confirm the upload in order to verify that it is the correct image. This will save processing time in case they have selected the wrong file.}
+	\item \textcolor{red}{Priority: High}
+\end{description}
+
+\subsubsection{\textcolor{red}{FR21}}
+
+\begin{description}
+	\item \textcolor{red}{Description: System shall have a button to confirm upload of PDF.}
+	\item \textcolor{red}{Rationale: Once the user has selected a PDF from their local computer, they must have the option to confirm the upload in order to verify that it is the correct document. This will save processing time in case they have selected the wrong file.}
+	\item \textcolor{red}{Priority: High}
 \end{description}
 
 
@@ -498,8 +579,9 @@ SaveTheDate is a standalone application that does not interact with other system
 \subsubsection{Cultural Requirements}
 
 \begin{itemize}
-  \item[CR1.] The system shall not allow users to input course names that are culturally offensive/inappropriate. 
-  \item[CR2.] The system shall not allow users to input course names that are in languages asides from English. 
+  \item[\sout{CR1.}] \sout{The system shall not allow users to input course names that are culturally offensive/inappropriate. }
+  \item[\sout{CR2.}] \sout{The system shall not allow users to input course names that are in languages asides from English. }
+  \item [] \textcolor{red}{N/A}
 \end{itemize}
 
 \subsection{Legal Requirements}
