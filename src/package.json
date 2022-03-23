@@ -1,6 +1,7 @@
 {
   "name": "notion-text-editor",
   "version": "1.0.0",
+  "proxy": "http://localhost:5000",
   "description": "This is a simplified version of a text editor like Notion.so. You can add different types of blocks by using different keyboards commands (Notion Clone).",
   "keywords": [],
   "main": "src/index.js",
@@ -26,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "doc": "jsdoc -c jsdoc.json"
+    "doc": "jsdoc -c jsdoc.json",
+    "start-api": "cd ../backend/src && flask run --no-debugger"
   },
   "browserslist": [
     ">0.2%",
