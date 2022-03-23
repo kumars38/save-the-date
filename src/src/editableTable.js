@@ -223,8 +223,10 @@ function reducer(state, action) {
  * This fucntion is the constructor for the EditableTable and renders the EditableTable.
  * @returns The rendering of the EditableTable.
  */
-function EditableTable() {
-  const [state, dispatch] = useReducer(reducer, loadData(2));
+function EditableTable(props) {
+  const [state, dispatch] = useReducer(reducer, loadData(props));
+
+  //console.log(props.data)
 
   useEffect(() => {
     dispatch({ type: "enable_reset" });
