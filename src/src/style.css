@@ -10,7 +10,7 @@ body {
 .Logo {
   margin: 2rem 0;
   width: 100%;
-  color: #0f2e53;
+  color: #424242;
   font-size: 1.8rem;
   font-weight: 700;
 }
@@ -18,7 +18,7 @@ body {
 .Intro {
   padding: 0.25rem 1rem 0.25rem 0.5rem;
   margin: 2rem 0;
-  border-left: 0.25rem solid #0f2e53;
+  border-left: 0.25rem solid #424242;
 }
 
 .Code {
@@ -125,4 +125,32 @@ body {
   bottom: 0;
   height: 60px;
   width: 100%;
+}
+
+.text-right-self {
+  text-align: right!important;
+  margin: 5px 0 5px 0;
+}
+
+.img-fit {
+  width: 100%;
+}
+
+.react-pdf__Page__canvas {
+  margin: auto;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.header-block {
+  background: #fafafa;
+  border-radius: 0.25rem;
+  padding-top: 5px;
+}
+.header-block:hover {
+  background: #f8f8f8;
+  outline-color: #f5f6fb;
+}
+.header-block:focus {
+  background: #f5f6fb;
 }

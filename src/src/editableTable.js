@@ -238,17 +238,6 @@ function EditableTable() {
         overflowX: "hidden"
       }}
     >
-      <div
-        style={{
-          height: 120,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column"
-        }}
-      >
-        <h1 style={{ color: grey(800) }}>Editable React Table</h1>
-      </div>
       <div style={{ overflow: "auto", display: "flex" }}>
         <div
           style={{

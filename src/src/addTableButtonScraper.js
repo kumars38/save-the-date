@@ -55,8 +55,13 @@ const AddTableButton = () => {
       {items.map((id) => (
         <Item key={id} id={id} removeDiv={removeDiv} data={arr}/>
       ))}
-
-      <button className="addTable" onClick={addTableClicked}>Add PDF Table</button>
+      <div className="col-md-12 text-center">
+        <button type="button" className="btn btn-outline-secondary addTable" onClick={addTableClicked}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-plus" viewBox="2 0 16 18">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+        PDF Table</button>
+      </div>
     </div>
   );
 };

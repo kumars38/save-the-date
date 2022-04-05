@@ -208,6 +208,10 @@ html {
   border-bottom: 1px solid #e0e0e0;
 }
 
+.table>:not(:first-child) {
+  border-top: none !important;
+}
+
 .th:last-child {
   border-right: 0;
 }
