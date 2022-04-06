@@ -5,6 +5,7 @@ import EditablePage from "./editablePage";
 import AddTableButtonScraper from "./addTableButtonScraper";
 import AddTableButton from "./addTableButton";
 import AddPDFButton from "./addPDFButton";
+import AddPDFButtonScraper from "./addPDFButtonScraper";
 import Image from "./editableImage";
 import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -38,6 +39,7 @@ ReactDOM.render(
     <Image />
     <h1 className="Logo"> This is the PDF Section.</h1>
     <AddPDFButton />
+    <AddPDFButtonScraper />
     <br></br>
   </React.StrictMode>,
   rootElement

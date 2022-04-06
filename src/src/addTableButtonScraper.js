@@ -25,7 +25,7 @@ const AddTableButton = () => {
   },[]);
 
   const fetchData = () => {
-    fetch('/data')
+    fetch('/file')
       .then((response) => response.json())
       .then((res) => {
         //console.log(res);
