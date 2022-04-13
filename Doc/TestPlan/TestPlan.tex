@@ -2,6 +2,7 @@
 
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{chngpage}
 \hypersetup{
@@ -12,6 +13,7 @@
     urlcolor=blue
 }
 \usepackage[round]{natbib}
+\usepackage[normalem]{ulem}
 
 \title{SE 3XA3: Test Plan\\SaveTheDate}
 
@@ -31,9 +33,10 @@
 \pagenumbering{roman}
 \tableofcontents
 \listoftables
-\listoffigures
 
-\begin{table}[bp]
+\newpage
+
+\begin{table}[tp]
 \caption{\bf Revision History}
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
@@ -43,6 +46,9 @@ March 9 & 1.0 &
 \midrule
 March 11 & 1.1 &
 \begin{tabular}{>{\raggedright\arraybackslash}X}Appendix by Karuka\\Traceability Matrix By Utsharga\\Test for POC, Comparison and Unit Testing Plan by Dhruv\end{tabular}\\
+\midrule
+Apr 12 & 1.2 &
+\begin{tabular}{>{\raggedright\arraybackslash}X}Rev 1: Updates of tests/traceability\\ to match updated SRS\\ by Samarth\end{tabular}\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -60,6 +66,8 @@ The purpose of this document is to outline the testing, validation, and verifica
 \subsection{Scope}
 
 The scope of the test plan outlined in this document is designed to test the functionality of the SaveTheDate application. To fully test SaveTheDate, we will test performance at a modular level by creating unit tests and at a higher level by using exploratory testing and specification-based testing. 
+
+\newpage
 
 \subsection{Acronyms, Abbreviations, and Symbols}
 	
@@ -180,19 +188,21 @@ How test will be performed: Dynamic, manual testing is performed by pressing the
 
 \begin{enumerate}
 
-\item{FR-ST-2\\}
+\item{\sout{FR-ST-2}\\}
 
-Type: Functional, Dynamic, Automated, Unit 
+\sout{Type: Functional, Dynamic, Automated, Unit} 
 
-Initial State: Notion page has a PDF document uploaded 
+\sout{Initial State: Notion page has a PDF document uploaded} 
 
-Input: The page range field is filled, ex. “1-10” 
+\sout{Input: The page range field is filled, ex. “1-10” }
 
-Output: The scraping process should only occur over the specified pages of the PDF document 
+\sout{Output: The scraping process should only occur over the specified pages of the PDF document }
 
-Exception: An error message stating “Invalid page range” should be provided if the page range entered is invalid. For example, negative values, fractional/decimal values, or if the first page number is greater than the last number. 
+\sout{Exception: An error message stating “Invalid page range” should be provided if the page range entered is invalid. For example, negative values, fractional/decimal values, or if the first page number is greater than the last number.} 
 
-How test will be performed: Unit testing is performed by supplying various page range inputs over multiple PDFs that have known scraping outputs per page. Then, outputs are compared to the known outputs to ensure that scraping only occurred over the specified range. 
+\sout{How test will be performed: Unit testing is performed by supplying various page range inputs over multiple PDFs that have known scraping outputs per page. Then, outputs are compared to the known outputs to ensure that scraping only occurred over the specified range.}
+
+\textcolor{red}{FR-ST-2 test case removed due to removal of page range requirement (SRS).}
 
 \end{enumerate}
 
@@ -250,13 +260,15 @@ How test will be performed: Manual testing will be used to verify that a table c
 
 \item{FR-ST-6\\}
 
-Type: Functional, Dynamic, Manual, Automated 
+Type: Functional, Dynamic, Manual, \sout{Automated} 
 
 Input: Structured data in the frontend (React) 
 
 Output: Notion table with tasks and their deadlines provided 
 
-How test will be performed: Automated testing using Mocha.js is used to verify that table fields match their expected values based on the deadline/task data. Manual testing will be used to verify that the tables are visually correct. 
+How test will be performed: \sout{Automated testing using Mocha.js is used to verify that table fields match their expected values based on the deadline/task data.} Manual testing will be used to verify that the tables are visually correct. 
+
+\textcolor{red}{Removal of automated testing in FR-ST-6 since we are no longer using Mocha.js.}
 
 \end{enumerate}
 
@@ -284,7 +296,7 @@ How test will be performed: Manual testing is used to verify that making changes
 
 \item{FR-ST-8\\}
 
-Type: Functional, Dynamic, Automated, Unit, Manual 
+Type: Functional, Dynamic, \sout{Automated, Unit,} Manual 
 
 Initial state: Notion page has a PDF uploaded 
 
@@ -292,9 +304,11 @@ Input: Course name/code field
 
 Output: Generated table title  
 
-Exception: An error message will be provided if the course name/code has invalid characters, is inappropriate, or exceeds a certain length 
+Exception: \sout{An error message will be provided if the course name/code has invalid characters, is inappropriate, or exceeds a certain length} 
 
-How test will be performed: Unit testing is used to verify that the supplied course names and codes become the title for the generated table, and exceptions are raised appropriately. Manual testing is used to verify editing the course field on the Notion page itself. 
+How test will be performed: \sout{Unit testing is used to verify that the supplied course names and codes become the title for the generated table, and exceptions are raised appropriately}. Manual testing is used to verify editing the course field on the Notion page itself. 
+
+\textcolor{red}{Automated testing and exceptions no longer tested. Manual testing still plans to be used.}
 
 \end{enumerate}
 
@@ -328,9 +342,12 @@ Input: A file selected via a file explorer window
 
 Output: PDF file is uploaded to the Notion page 
 
-Exception: An error message is provided if the file does not end in .pdf.  
+\sout{Exception: An error message is provided if the file does not end in .pdf.}  
 
-How test will be performed: Automated testing is first used to check whether various PDFs can be uploaded using files from the repository. Manual testing is further used to verify that various PDF files can be selected using the explorer, and non-PDF files raise an exception. 
+How test will be performed: Automated testing is first used to check whether various PDFs can be uploaded using files from the repository. Manual testing is further used to verify that various PDF files can be selected using the explorer, \sout{and non-PDF files raise an exception}. 
+
+\textcolor{red}{Not testing for invalid file extensions.}
+
 \end{enumerate}
 
 \subsubsection{Uploading Image from local system to Notion clone}
@@ -349,7 +366,7 @@ Input: An “Upload Image” button
 
 Output: File explorer window opens, image can be selected and uploaded 
 
-Exception: An error message is provided if the format of the file is not an image extension (.png, .jpg, etc.) 
+\sout{Exception: An error message is provided if the format of the file is not an image extension (.png, .jpg, etc.)} 
 
 How test will be performed: Automated testing is used to check whether various images can first be uploaded to the page using a file from the repository (/img/…). Manual testing is then used to verify that the upload image button is functional from the Notion page.
 
@@ -361,15 +378,17 @@ How test will be performed: Automated testing is used to check whether various i
 
 \begin{enumerate}
 
-\item{FR-ST-12\\}
+\item{\sout{FR-ST-12}\\}
 
-Type: Functional, Dynamic, Manual 
+\sout{Type: Functional, Dynamic, Manual} 
 
-Input: Right-clicking on Notion line 
+\sout{Input: Right-clicking on Notion line}
 
-Output: Menu with the various buttons (upload, scrape, etc.) should appear 
+\sout{Output: Menu with the various buttons (upload, scrape, etc.) should appear}
 
-How test will be performed: Manual testing is used to verify that menu appears and has all options present. Ensure that “Begin Scraping” button is unavailable until a PDF is uploaded.
+\sout{How test will be performed: Manual testing is used to verify that menu appears and has all options present. Ensure that “Begin Scraping” button is unavailable until a PDF is uploaded.}
+
+\textcolor{red}{FR-ST-12 is no longer a relevant test case after changes in the SRS.}
 
 \end{enumerate}
 
@@ -623,29 +642,31 @@ How test will be performed: The automated testing is run on different Internet B
 
 \begin{enumerate}
 
-\item{NFR-CR-1\\}
+\item{\sout{NFR-CR-1}\\}
 
-Type: Automated, Dynamic 
+\sout{Type: Automated, Dynamic}
 
-Initial state: The Notion SaveTheDate is running 
+\sout{Initial state: The Notion SaveTheDate is running}
 
-Input: set of banned inappropriate words 
+\sout{Input: set of banned inappropriate words} 
 
-Output: Prompt showing input is inappropriate 
+\sout{Output: Prompt showing input is inappropriate}
 
-How test will be performed: The test team will run automated tests using React Unit test suite where the system will run assertions to check if all the banned words are not accepted as a course name. 
+\sout{How test will be performed: The test team will run automated tests using React Unit test suite where the system will run assertions to check if all the banned words are not accepted as a course name.}
 
-\item{NFR-CR-2\\}
+\item{\sout{NFR-CR-2}\\}
 
-Type: Automated, Dynamic 
+\sout{Type: Automated, Dynamic}
 
-Initial state: The Notion SaveTheDate is running 
+\sout{Initial state: The Notion SaveTheDate is running} 
 
-Input: set of different languages that do not use English Language 
+\sout{Input: set of different languages that do not use English Language} 
 
-Output: Prompt showing input is not in English 
+\sout{Output: Prompt showing input is not in English} 
 
-How test will be performed: The test team will run automated tests using React Unit test suite where the system will run assertions to check if different languages are not accepted as a course name. 
+\sout{How test will be performed: The test team will run automated tests using React Unit test suite where the system will run assertions to check if different languages are not accepted as a course name.}
+
+\textcolor{red}{NFR-CR-1 and NFR-CR-2 are no longer relevant test cases due to changes in the SRS (not submitting course name).}
 
 \end{enumerate}
 
@@ -654,22 +675,24 @@ How test will be performed: The test team will run automated tests using React U
 \subsection{Traceability Between Test Cases and Requirements}
 
 \begin{table}[h!]
+\tiny
 \centerline{%
-\begin{tabular}{l|cccccccccccc}
+\begin{tabular}{l|cccccccccccccccccccc}
 \multicolumn{1}{c|}{Test IDs} & \multicolumn{12}{c}{Requirement IDs} \\ \hline
- & \multicolumn{1}{l}{FR1} & \multicolumn{1}{l}{FR2} & \multicolumn{1}{l}{FR3} & \multicolumn{1}{l}{FR4} & \multicolumn{1}{l}{FR5} & \multicolumn{1}{l}{FR6} & \multicolumn{1}{l}{FR7} & \multicolumn{1}{l}{FR8} & \multicolumn{1}{l}{FR9} & \multicolumn{1}{l}{FR10} & \multicolumn{1}{l}{FR11} & \multicolumn{1}{l}{FR12} \\ \hline
+ & \multicolumn{1}{l}{FR1} & \multicolumn{1}{l}{FR2} & \multicolumn{1}{l}{FR3} & \multicolumn{1}{l}{FR4} & \multicolumn{1}{l}{FR5} & \multicolumn{1}{l}{FR6} & \multicolumn{1}{l}{FR7} & \multicolumn{1}{l}{FR8} & \multicolumn{1}{l}{FR9} & \multicolumn{1}{l}{FR10} & \multicolumn{1}{l}{FR11} & \multicolumn{1}{l}{FR12} 
+ & \multicolumn{1}{l}{FR13} & \multicolumn{1}{l}{FR14} & \multicolumn{1}{l}{FR15} & \multicolumn{1}{l}{FR16} & \multicolumn{1}{l}{FR17} & \multicolumn{1}{l}{FR18} & \multicolumn{1}{l}{FR19} & \multicolumn{1}{l}{FR20} \\ \hline
 FR-ST-1 & X &  &  &  &  &  &  &  &  &  &  &  \\
-FR-ST-2 &  & X &  &  &  &  &  &  &  &  &  &  \\
+\sout{FR-ST-2} &  &  &  &  &  &  &  &  &  &  &  &  \\
 FR-ST-3 &  &  & X &  &  &  &  &  &  &  &  &  \\
 FR-ST-4 &  &  &  & X &  &  &  &  &  &  &  &  \\
 FR-ST-5 &  &  &  &  & X &  &  &  &  &  &  &  \\
 FR-ST-6 &  &  &  &  &  & X &  &  &  &  &  &  \\
-FR-ST-7 &  &  &  &  &  &  & X &  &  &  &  &  \\
-FR-ST-8 &  &  &  &  &  &  &  & X &  &  &  &  \\
-FR-ST-9 &  &  &  &  &  &  &  &  & X &  &  &  \\
-FR-ST-10 &  &  &  &  &  &  &  &  &  & X &  &  \\
-FR-ST-11 &  &  &  &  &  &  &  &  &  &  & X &  \\
-FR-ST-12 &  &  &  &  &  &  &  &  &  &  &  & X
+FR-ST-7 &  &  &  &  &  &  & X &  &  &  &  & \textcolor{red}{X} & \textcolor{red}{X} & \textcolor{red}{X} & \textcolor{red}{X} \\
+FR-ST-8 &  &  &  &  &  &  &  & X &  &  &  &  &   &  &  & \\
+FR-ST-9 &  & \textcolor{red}{X} &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  & \textcolor{red}{X} & \textcolor{red}{X} \\
+FR-ST-10 &  &  &  &  &  &  &  &  &  & X &  &  &   &  &  &  \textcolor{red}{X} & \textcolor{red}{X} \\
+FR-ST-11 &  &  &  &  &  &  &  &  &  &  & X &  &   &  &  &  &  &  &  & \textcolor{red}{X}\\
+\sout{FR-ST-12} &  &  &  &  &  &  &  &  &  &  &  &  \\
 \end{tabular}
 }
 \caption{Traceability Matrix: Functional Requirement}
@@ -684,7 +707,7 @@ FR-ST-12 &  &  &  &  &  &  &  &  &  &  &  & X
 \centerline{%
 \begin{tabular}{lccccccccccccccccccc}
 \multicolumn{1}{c|}{Test IDs} & \multicolumn{19}{c}{Requirement IDs} \\ \hline
-\multicolumn{1}{l|}{} & \multicolumn{1}{l}{LF1} & \multicolumn{1}{l}{LF2} & \multicolumn{1}{l}{UH1} & \multicolumn{1}{l}{UH2} & \multicolumn{1}{l}{UH3} & \multicolumn{1}{l}{PE1} & \multicolumn{1}{l}{PE2} & \multicolumn{1}{l}{PE3} & \multicolumn{1}{l}{PE4} & \multicolumn{1}{l}{PE5} & \multicolumn{1}{l}{OE1} & \multicolumn{1}{l}{RR1} & \multicolumn{1}{l}{MA1} & \multicolumn{1}{l}{MA2} & \multicolumn{1}{l}{MA3} & \multicolumn{1}{l}{MA4} & \multicolumn{1}{l}{MA5} & \multicolumn{1}{l}{CR1} & \multicolumn{1}{l}{CR2} \\ \hline
+\multicolumn{1}{l|}{} & \multicolumn{1}{l}{LF1} & \multicolumn{1}{l}{LF2} & \multicolumn{1}{l}{UH1} & \multicolumn{1}{l}{UH2} & \multicolumn{1}{l}{UH3} & \multicolumn{1}{l}{PE1} & \multicolumn{1}{l}{PE2} & \multicolumn{1}{l}{PE3} & \multicolumn{1}{l}{PE4} & \multicolumn{1}{l}{PE5} & \multicolumn{1}{l}{OE1} & \multicolumn{1}{l}{RR1} & \multicolumn{1}{l}{MA1} & \multicolumn{1}{l}{MA2} & \multicolumn{1}{l}{MA3} & \multicolumn{1}{l}{MA4} & \multicolumn{1}{l}{MA5} & \multicolumn{1}{l}{\sout{CR1}} & \multicolumn{1}{l}{\sout{CR2}} \\ \hline
 \multicolumn{1}{l|}{NFR-LF-1} & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
 \multicolumn{1}{l|}{NFR-LF-2} &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
 \multicolumn{1}{l|}{NFR-UH-1} &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
@@ -702,13 +725,15 @@ FR-ST-12 &  &  &  &  &  &  &  &  &  &  &  & X
 \multicolumn{1}{l|}{NFR-MA-3} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  \\
 \multicolumn{1}{l|}{NFR-MA-4} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  \\
 \multicolumn{1}{l|}{NFR-MA-5} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  \\
-\multicolumn{1}{l|}{NFR-CR-1} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  \\
-\multicolumn{1}{l|}{NFR-CR-2} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X
+\multicolumn{1}{l|}{\sout{NFR-CR-1}} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\multicolumn{1}{l|}{\sout{NFR-CR-2}} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \end{tabular}
 }
 \caption{Traceability Matrix: Non-Functional Requirement}
 \label{Traceability Matrix: Non-Functional Requirement}
 \end{table}
+
+\newpage
 
 \normalsize
 
