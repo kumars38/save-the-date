@@ -49,6 +49,7 @@ February 11 & 1.3 & Project issues completed\\
 February 11 & 1.4 & Functional requirements and project constraints completed\\
 March 10 & 1.5 & Functional requirements updated due to outdated source code components\\
 March 20 & 1.6 & Revision 0: Functional requirements updated by developer, Karuka Khurana\\
+Apr 12 & 1.7 & Revision 1: Edit of FRs and new problems by Samarth Kumar\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -264,12 +265,21 @@ SaveTheDate is a standalone application that does not interact with other system
   \item[Priority:] High
 \end{description}
 
-\subsubsection{FR2}
+\subsubsection{\sout{FR2}}
 
 \begin{description}
-  \item[Description:] The system shall have a way to select the page range they want to scrape \textcolor{red}{through a button}. 
-  \item[Rationale:] If the user knows the range in which the deadlines might exist in the document, the application can scrape over a specified page range, minimizing processing time. 
-  \item[Priority:] High
+  \item[\sout{Description:}] \sout{The system shall have a way to select the page range they want to scrape \textcolor{red}{through a button}}. 
+  \item[\sout{Rationale:}] \sout{If the user knows the range in which the deadlines might exist in the document, the application can scrape over a specified page range, minimizing processing time.}
+  \item[\sout{Priority:}] \sout{High}
+\end{description}
+
+\subsubsection{\textcolor{cyan}{FR2}}
+\begin{description}
+	\item \textcolor{cyan}{Description: System shall have a button to confirm upload of PDF.}
+	\item \textcolor{cyan}{Rationale: Once the user has selected a PDF from their local computer, they 
+  must have the option to confirm the upload in order to verify that it is the correct document. 
+  This will save processing time in case they have selected the wrong file.}
+	\item \textcolor{cyan}{Priority: High}
 \end{description}
 
 \subsubsection{FR3}
@@ -435,12 +445,14 @@ SaveTheDate is a standalone application that does not interact with other system
 	\item \textcolor{red}{Priority: High}
 \end{description}
 
-\subsubsection{\textcolor{red}{FR21}}
+\subsubsection{\sout{\textcolor{red}{FR21}}}
 
 \begin{description}
-	\item \textcolor{red}{Description: System shall have a button to confirm upload of PDF.}
-	\item \textcolor{red}{Rationale: Once the user has selected a PDF from their local computer, they must have the option to confirm the upload in order to verify that it is the correct document. This will save processing time in case they have selected the wrong file.}
-	\item \textcolor{red}{Priority: High}
+	\item \textcolor{red}{\sout{Description: System shall have a button to confirm upload of PDF.}}
+	\item \textcolor{red}{\sout{Rationale: Once the user has selected a PDF from their local computer, they} 
+  \sout{must have the option to confirm the upload in order to verify that it is the correct document.} 
+  \sout{This will save processing time in case they have selected the wrong file.}}
+	\item \textcolor{red}{\sout{Priority: High}}
 \end{description}
 
 
@@ -606,7 +618,14 @@ There are no major open issues with the \textbf{react-notion-x} repository. A mi
 \textbf{Amazon Textract}, however, these are marketed towards businesses that want to scrape PDF data in bulk, and not just deadlines. Furthermore, they are costly to use, and do not produce tables onto a page like Notion.
 
 \subsection{New Problems}
-N/A
+\sout{N/A}
+
+\begin{itemize}
+  \item \textcolor{cyan}{PDF scraping of files not in local repo is not functional.}
+  \item \textcolor{cyan}{Communication of React to Flask via fetch-API is inconsistent.}
+  \item \textcolor{cyan}{After UI overhaul, creating new columns in the PDF scraped editable table may
+  not work.}
+\end{itemize}
 
 \subsection{Tasks}
 Tasks are assigned and scheduled based on the \href{https://gitlab.cas.mcmaster.ca/se3xa3_l03_g17/se3xa3_l03_g17/-/blob/main/ProjectSchedule/3XA3_L03_G17_GanttChart.pdf}{Gantt chart}.
