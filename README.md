@@ -8,5 +8,16 @@ This project is a reimplementation of an open source React Notion renderer, addi
 
 The folders and files for this project are as follows:
 
-Doc - Documentation for the project
-Code - Implementation
+Doc - Documentation for the project, src - Implementation
+
+## Instructions
+Setup:
+Install node, npm, tabula-py, pandas, re, and flask libraries.
+
+Frontend (React):
+- Execute `npm install` followed by `npm run start` in the command line, while in the `src` directory.
+
+Backend (Flask/python):
+- Execute `flask run` in the command line, while in the `src/backend/src` directory.
+
+Finally, view the Notion page by entering `localhost:3000` in any web browser.
