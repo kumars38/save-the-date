@@ -1,0 +1,590 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{chngpage}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=red,
+    urlcolor=blue
+}
+\usepackage[round]{natbib}
+\usepackage[normalem]{ulem}
+
+\title{SE 3XA3: Test Report\\SaveTheDate}
+
+\author{Group 17\\
+	Karuka Khurana (khurak1)\\
+	Utsharga Rozario (rozariou)\\
+	Samarth Kumar (kumars38)\\
+	Dhruv Cheemakurti (cheemakd)\\
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\pagenumbering{roman}
+\tableofcontents
+\listoftables
+
+\newpage 
+
+\begin{table}[tp]
+\caption{\bf Revision History}
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\midrule
+Apr 12 & 1.0 & Rev 1: All group members completed the test report.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\newpage
+
+\pagenumbering{arabic}
+
+This document contains the results of executing tests based on the revised test plan.
+
+\section{Functional Requirements Evaluation}
+
+\subsection{Scraping PDF Tests}
+		
+\paragraph{Begin scraping button}
+
+\begin{enumerate}
+
+\item{FR-ST-1\\}
+
+Type: Functional, Dynamic, Manual 
+
+Initial State: Notion page has a PDF document uploaded 
+
+Input: A “Begin Scraping” button is pressed using the mouse 
+
+Output: The scraping process should begin 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Identifying structured deadlines}
+
+\begin{enumerate}
+
+\item{FR-ST-3\\}
+
+Type: Functional, Dynamic, Automated, Unit 
+
+Input: The PDF document 
+
+Output: All structured (tabular) deadlines are found in the form of a 2D list 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Structuring the output (Backend to frontend testing)}
+
+\begin{enumerate}
+
+\item{FR-ST-4\\}
+
+Type: Functional, Dynamic, Automated, Unit 
+
+Input: 2D list of deadlines and corresponding tasks from the python backend 
+
+Output: Structured data in the frontend (React) 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Empty notion table creation}
+
+\begin{enumerate}
+
+\item{FR-ST-5\\}
+
+Type: Functional, Dynamic, Manual 
+
+Input: Dimensions and column headings for the table 
+
+Output: Notion table 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Notion table creation with deadlines}
+
+\begin{enumerate}
+
+\item{FR-ST-6\\}
+
+Type: Functional, Dynamic, Manual, \sout{Automated} 
+
+Input: Structured data in the frontend (React) 
+
+Output: Notion table with tasks and their deadlines provided 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Editing a table}
+
+\begin{enumerate}
+
+\item{FR-ST-7\\}
+
+Type: Functional, Dynamic, Manual 
+
+Initial state: Notion page has a table created 
+
+Input: Editing table cells 
+
+Output: Changed table 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Course code}
+
+\begin{enumerate}
+
+\item{FR-ST-8\\}
+
+Type: Functional, Dynamic, Manual 
+
+Initial state: Notion page has a PDF uploaded 
+
+Input: Course name/code field 
+
+Output: Generated table title  
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Uploading PDF}
+
+\begin{enumerate}
+
+\item{FR-ST-9\\}
+
+Type: Functional, Dynamic, Manual 
+
+Initial state: Notion page has no PDF uploaded 
+
+Input: An “Upload PDF” button 
+
+Output: File explorer window opens 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Selecting PDF from files}
+
+\begin{enumerate}
+
+\item{FR-ST-10\\}
+
+Type: Functional, Dynamic, Manual, Automated 
+
+Input: A file selected via a file explorer window 
+
+Output: PDF file is uploaded to the Notion page 
+
+Result: Pass 
+
+\end{enumerate}
+
+\subsection{Uploading Image from local system to Notion clone}
+
+\paragraph{Uploading Image}
+
+\begin{enumerate}
+
+\item{FR-ST-11\\}
+
+Type: Functional, Dynamic, Manual, Automated 
+
+Initial state: Notion page has no image uploaded 
+
+Input: An “Upload Image” button 
+
+Output: File explorer window opens, image can be selected and uploaded 
+
+Result: Pass 
+
+\end{enumerate}
+
+\section{Nonfunctional Requirements Evaluation}
+
+\subsection{Look and Feel Requirements}
+		
+\paragraph{Appearance Requirements}
+
+\begin{enumerate}
+
+\item{NFR-LF-1\\}
+
+Type: Manual, Dynamic, Checklist 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Style Requirements}
+
+\begin{enumerate}
+
+\item{NFR-LF-2\\}
+
+Type: Manual, Usability Survey 
+
+Result: Pass
+
+\end{enumerate}
+
+\subsection{Usability and Humanity Requirements}
+
+\paragraph{Ease of use Requirements}
+
+\begin{enumerate}
+
+\item{NFR-UH-1\\}
+
+Type: Manual, Usability Survey 
+
+Result: N/A
+
+\item{NFR-UH-2\\}
+
+Type: Manual, Usability Survey 
+
+Result: N/A
+
+\item{NFR-UH-3\\}
+
+Type: Manual, Usability Survey 
+
+Result: N/A
+
+\end{enumerate}
+
+\subsection{Performance Requirements}
+		
+\paragraph{Speed Requirements}
+
+\begin{enumerate}
+
+\item{NFR-PR-1\\}
+
+Type: Automated, Dynamic, UnitTest 
+
+Initial State: PDF to scrape exists in test directory 
+
+Input/Condition: set of PDFs 
+
+Output/Result: Outputs the table data from the PDF in the command line 
+
+Result: Pass
+
+\item{NFR-PR-2\\}
+
+Type: Automated, Dynamic 
+
+Initial State: Table to be used as input exits in test directory 
+
+Input/Condition: set of table data 
+
+Output/Result: Outputs the table data as a Notion Component 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Precision or Accuracy Requirements}
+
+\begin{enumerate}
+
+\item{NFR-PR-3\\}
+
+Type: Automated, Dynamic 
+
+Initial State: PDF to scrape exists in test directory 
+
+Input/Condition: set of PDFs 
+
+Output/Result: Outputs all the deadline tables and its data in the command line 
+
+Result: Pass
+
+\item{NFR-PR-4\\}
+
+Type: Automated, Dynamic 
+
+Initial State: Table to be used as input exits in test directory 
+
+Input/Condition: set of table data 
+
+Output/Result: Outputs all the deadline tables and its data as a notion table  
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Longevity Requirements}
+
+\begin{enumerate}
+
+\item{NFR-PR-5\\}
+
+Type: Automated, Dynamic 
+
+Initial State: The React application is running 
+
+Input/Condition: All dependencies are up to date 
+
+Output/Result: All key functionality is working 
+
+Result: Pass
+
+\end{enumerate}
+
+\subsection{Operational and Environmental Requirements}
+
+\paragraph{Expected Physical Environment}
+
+\begin{enumerate}
+
+\item{NFR-OE-1\\}
+
+Type: Manual, Dynamic 
+
+Result: Pass
+
+\end{enumerate}
+
+\subsection{Release Requirements}
+
+\begin{enumerate}
+
+\item{NFR-RR-1\\}
+
+Type: Manual, static, code inspection 
+
+Initial state: Program deployed to users in production 
+
+Input: Users provide feedback and feature requests 
+
+Output: Development team maintains feedback via a Gitlab issue tracker. 
+
+Result: Pass
+
+\end{enumerate}
+
+\subsection{Maintainability and Support Requirements}
+
+\paragraph{Maintenance Requirements}
+
+\begin{enumerate}
+
+\item{NFR-MA-1\\}
+
+Type: Manual, Static 
+
+Initial state: N/A 
+
+Input: N/A 
+
+Output: The code is documented accurately with comments 
+
+Result: Pass
+
+\item{NFR-MA-2\\}
+
+Type: Manual, Static 
+
+Initial state: N/A 
+
+Input: N/A 
+
+Output: The code is commented sufficiently, and the formatting is consistent
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Supportability Requirements}
+
+\begin{enumerate}
+
+\item{NFR-MA-3\\}
+
+Type: Manual, Dynamic 
+
+Initial state: Program deployed to users in GitLab and made public 
+
+Input: Users provide feedback and raise issues 
+
+Output: List of all the commands is displayed for the user 
+
+Result: Pass
+
+\end{enumerate}
+
+\paragraph{Adaptability Requirements}
+
+\begin{enumerate}
+
+\item{NFR-MA-4\\}
+
+Type: Automated, Dynamic 
+
+Initial state: Program is running on different Operating Systems 
+
+Input: N/A 
+
+Output: N/A 
+
+Result: Pass
+
+\item{NFR-MA-5\\}
+
+Type: Automated, Dynamic 
+
+Initial state: Program is running on different Internet Browser 
+
+Input: N/A 
+
+Output: N/A 
+
+Result: Pass
+
+\end{enumerate}
+
+\section{Comparison to Existing Implementation}	
+
+When comparing the current product (SaveTheDate) with the original product that Notion offers, there are a few differences. The layout and the visual user interface is identical to Notion. Both products use the feature that gives the user the option to write in a Heading, Paragraph etc. Since our application uses a Notion framework, the code structure and layout are fairly similar because it still has the option for tables, pages etc. The difference between our application and Notion’s is that there will be a button for table generation. This button will run the backend processes to scrape a PDF of the user’s choice. The scraped data will generate a table with all the relevant information from the PDF. There are multiple functions that are involved in order to scrape the PDF that will be tested for to ensure it output as intended. 
+
+\section{Usability}
+These survey questions were used to test usability requirements.
+
+\begin{enumerate}
+
+\item Would you use SaveTheDate as your main organization tool for due dates (Y/N)? 
+
+\item Are the SaveTheDate commands easy to use? 
+
+\item Is the process (from uploading the pdf to receiving the outputted table) intuitive? If not, why? 
+
+\item On average, how long does the process to receive a summary of your due dates take? (5 seconds, 10 seconds, etc.) 
+
+\item Rate the benefit of the application as “good”, “neutral”, or “bad”.  
+
+\item Rate your experience using the application. (Intimidating, complicated, neutral, or excellent) 
+
+\end{enumerate}
+
+\section{Unit Testing}
+
+Unit testing was performed using only the Pytest Framework.
+
+\subsection{Unit testing of internal functions}
+Unit testing for internal functions will be done for each function to enforce reliability and robustness. The tests include boundary and partition testing to catch errors, this is to avoid a potential system crash.  The purpose of unit testing is to ensure that our final version of the product will behave as it was originally intended and designed. The unit testing will use normal cases, boundary cases and abnormal ones that purposefully result in error states. Moreover, integration testing will also be implemented after unit testing to verify that the system’s output and its communication between functions and modules match what was outlined in the SRS. As a team, we have collectively decided to aim for 85\% for test coverage. 
+
+\subsection{Unit testing of output files}	
+The nature of our product does not produce any output files, as the PDF scraped table will only be added on to the original page of Notion. Therefore, unit testing for output files is not required. 
+
+\section{Changes Due to Testing}
+One major change to SaveTheDate was the UI of the Notion webpage, as it was previously unsatisfactory to meet 
+the non-functional requirements. There were no other major changes to the code as a result of testing. This was because the majority of tests passed, or were found to be irrelevant after updating the requirements of our project.
+
+\section{Automated Testing}
+Automated testing was performed when possible, especially focusing on the backend with Python unit testing.
+However, the majority of testing was done manually, as it involved directly interacting with the webpage or 
+look-and-feel requirements.
+
+\newpage
+
+\section{Trace to Requirements}
+
+\begin{table}[ht!]
+\tiny
+\centerline{%
+\begin{tabular}{l|cccccccccccccccccccc}
+\multicolumn{1}{c|}{Test IDs} & \multicolumn{12}{c}{Requirement IDs} \\ \hline
+ & \multicolumn{1}{l}{FR1} & \multicolumn{1}{l}{FR2} & \multicolumn{1}{l}{FR3} & \multicolumn{1}{l}{FR4} & \multicolumn{1}{l}{FR5} & \multicolumn{1}{l}{FR6} & \multicolumn{1}{l}{FR7} & \multicolumn{1}{l}{FR8} & \multicolumn{1}{l}{FR9} & \multicolumn{1}{l}{FR10} & \multicolumn{1}{l}{FR11} & \multicolumn{1}{l}{FR12} 
+ & \multicolumn{1}{l}{FR13} & \multicolumn{1}{l}{FR14} & \multicolumn{1}{l}{FR15} & \multicolumn{1}{l}{FR16} & \multicolumn{1}{l}{FR17} & \multicolumn{1}{l}{FR18} & \multicolumn{1}{l}{FR19} & \multicolumn{1}{l}{FR20} \\ \hline
+FR-ST-1 & X &  &  &  &  &  &  &  &  &  &  &  \\
+FR-ST-3 &  &  & X &  &  &  &  &  &  &  &  &  \\
+FR-ST-4 &  &  &  & X &  &  &  &  &  &  &  &  \\
+FR-ST-5 &  &  &  &  & X &  &  &  &  &  &  &  \\
+FR-ST-6 &  &  &  &  &  & X &  &  &  &  &  &  \\
+FR-ST-7 &  &  &  &  &  &  & X &  &  &  &  & \textcolor{red}{X} & \textcolor{red}{X} & \textcolor{red}{X} & \textcolor{red}{X} \\
+FR-ST-8 &  &  &  &  &  &  &  & X &  &  &  &  &   &  &  & \\
+FR-ST-9 &  & \textcolor{red}{X} &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  & \textcolor{red}{X} & \textcolor{red}{X} \\
+FR-ST-10 &  &  &  &  &  &  &  &  &  & X &  &  &   &  &  &  \textcolor{red}{X} & \textcolor{red}{X} \\
+FR-ST-11 &  &  &  &  &  &  &  &  &  &  & X &  &   &  &  &  &  &  &  & \textcolor{red}{X}\\
+\end{tabular}
+}
+\caption{Traceability Matrix: Functional Requirement}
+\label{Traceability Matrix: Functional Requirement}
+\end{table}
+
+\begin{table}[hb!]
+    \scriptsize
+    \centerline{%
+    \begin{tabular}{lccccccccccccccccccc}
+    \multicolumn{1}{c|}{Test IDs} & \multicolumn{18}{c}{Requirement IDs} \\ \hline
+    \multicolumn{1}{l|}{} & \multicolumn{1}{l}{LF1} & \multicolumn{1}{l}{LF2} & \multicolumn{1}{l}{UH1} & \multicolumn{1}{l}{UH2} & \multicolumn{1}{l}{UH3} & \multicolumn{1}{l}{PE1} & \multicolumn{1}{l}{PE2} & \multicolumn{1}{l}{PE3} & \multicolumn{1}{l}{PE4} & \multicolumn{1}{l}{PE5} & \multicolumn{1}{l}{OE1} & \multicolumn{1}{l}{RR1} & \multicolumn{1}{l}{MA1} & \multicolumn{1}{l}{MA2} & \multicolumn{1}{l}{MA3} & \multicolumn{1}{l}{MA4} & \multicolumn{1}{l}{MA5} \\ \hline
+    \multicolumn{1}{l|}{NFR-LF-1} & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-LF-2} &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-UH-1} &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-UH-2} &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-UH-3} &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-PE-1} &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-PE-2} &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-PE-3} &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-PE-4} &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-PE-5} &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-OE-1} &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-RR-1} &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-MA-1} &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-MA-2} &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-MA-3} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  \\
+    \multicolumn{1}{l|}{NFR-MA-4} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  \\
+    \multicolumn{1}{l|}{NFR-MA-5} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  
+    \end{tabular}
+    }
+    \caption{Traceability Matrix: Non-Functional Requirement}
+    \label{Traceability Matrix: Non-Functional Requirement}
+    \end{table}
+
+\newpage 
+
+\section{Trace to Modules}	
+The trace to modules is covered in the MG.
+
+
+\section{Code Coverage Metrics}
+Code coverage was not formally tested due to the majority of automated testing covering the
+backend python, which comprises a relatively low percentage of the total code.
+Instead, a large amount of the React code was tested manually for coverage, by interacting 
+with the webpage such that every module was tested.
+
+\bibliographystyle{plainnat}
+
+\bibliography{SRS}
+
+\end{document}
