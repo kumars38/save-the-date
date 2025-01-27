@@ -4,7 +4,7 @@
 - Modified to include a PDF scraping feature:
   - Automatically extract and keep track of important dates and deadlines
 - Frontend: **React**/**TypeScript**
-- Backend: **Flask**/**Python**
+- Backend: **Flask**/**Python** (pandas, tabula-py)
 
 Contributors:
 - Utsharga Rozario (rozariou)
